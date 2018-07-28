@@ -1,0 +1,17 @@
+<h1>여기는 <%= @numb %>번 게시물 edit페이지입니다.</h1>
+
+
+<form action="/mentorrq/update/<%= @numb %>" method="get">
+  <div class="form-group">
+    <label for="exampleFormControlInput1">작성자</label></label>
+    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="여기다가 질문자의 이름을 입력하세요." name="name" value="<%= @findone.name %>"> 
+  </div>
+  
+  <div class="form-group">
+    <label for="exampleFormControlTextarea1">한 마디</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="content"><%= @findone.content %></textarea>
+  </div>
+  
+  <button type="submit">제출하기!</button>
+</form>
+

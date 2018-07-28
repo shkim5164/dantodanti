@@ -1,4 +1,18 @@
 Rails.application.routes.draw do
+  get 'mentorrq/index'
+  get 'mentorrq/write'
+  get 'mentorrq/edit/:id' => 'mentorrq#edit'
+  get 'mentorrq/delete'
+  get 'mentorrq/create'
+  
+  get 'mentorrq/update/:id' => 'mentorrq#update'
+  get 'mentorrq/show/:id' => 'mentorrq#show'
+  get 'mentorrq/delete/:id' => 'mentorrq#delete'
+
+  get 'mentoraw/make'
+  get 'mentoraw/destroy/:a_id' => 'mentoraw#destroy'
+  
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
