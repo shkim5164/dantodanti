@@ -1,4 +1,16 @@
 Rails.application.routes.draw do
+  root 'public#index'
+  
+  get 'public/write'
+  post 'public/create'
+  get 'public/show/:id' => 'public#show'
+  get 'public/index'
+  get 'public/show'
+  
+  #comment
+  post '/comments' => 'comment#create'
+  delete '/comments/:id' => 'comment#destory'
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
