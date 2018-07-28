@@ -1,0 +1,22 @@
+<a href="/public/index">목록으로 돌아가기</a>
+<h5>제목</h5><p><%= @s_title %></p>
+<h5>내용</h5><p><%= @s_content %></p>
+<hr />
+<!--여기부터 답변 양식입니다.-->
+
+<form action="/comments" method="post">
+    <strong>댓글: </strong>
+    <input type="hidden" value="<%= @findone.id %>" name="blacklist_id"></input>
+    <input type='text', name='content'></input>
+    <input type='submit'></input>
+
+
+</form>
+<hr>
+<% @comments.each do |c|%>
+    <p><%= c.content %>
+    <a href='/comments/<%= c.id %>' data-method='delete'>삭제</a>
+    </p>
+<% end %>
+
+

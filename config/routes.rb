@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   get 'mentorrq/index'
   get 'mentorrq/write'
   get 'mentorrq/edit/:id' => 'mentorrq#edit'
@@ -12,7 +13,28 @@ Rails.application.routes.draw do
   get 'mentoraw/make'
   get 'mentoraw/destroy/:a_id' => 'mentoraw#destroy'
   
+  get 'menu/main'
+
+  get 'menu/mentoring'
+
+  get 'menu/ranking'
+
+  get 'menu/execution'
   
+  root 'menu#main'
+
+  # root 'public#index'
+  
+  get 'public/write'
+  post 'public/create'
+  get 'public/show/:id' => 'public#show'
+  get 'public/index'
+  get 'public/show'
+  
+  #comment
+  post '/comments' => 'comment#create'
+  delete '/comments/:id' => 'comment#destory'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
