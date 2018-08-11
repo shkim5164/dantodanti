@@ -1,24 +1,24 @@
+# 단토단티 개발일지
+-----------------------
 
-     ,-----.,--.                  ,--. ,---.   ,--.,------.  ,------.
-    '  .--./|  | ,---. ,--.,--. ,-|  || o   \  |  ||  .-.  \ |  .---'
-    |  |    |  || .-. ||  ||  |' .-. |`..'  |  |  ||  |  \  :|  `--, 
-    '  '--'\|  |' '-' ''  ''  '\ `-' | .'  /   |  ||  '--'  /|  `---.
-     `-----'`--' `---'  `----'  `---'  `--'    `--'`-------' `------'
-    ----------------------------------------------------------------- 
+## Controllers - views
 
+1. public - 공개처형게시판
+    - index - 메인
+    - show - 처형인디테일정보
+    - write - 처형인 등록
+2. Comment - 공개처형게시판 댓글
+    -  view 없음
+3. mentoraw - 멘토신청게시판 댓글
+    - view 없음
+4. menrorq - 멘토신청게시판
+    - index - 메인
+    - edit - 수정
+    - show - 게시물확인
+    - write - 게시물 작성
+5. menu - 메인 컨트롤러
+    - main - 로그인 후 메인페이지
 
-Welcome to your Rails project on Cloud9 IDE!
+-------------------------
 
-To get started, just do the following:
-
-1. Run the project with the "Run Project" button in the menu bar on top of the IDE.
-2. Preview your new app by clicking on the URL that appears in the Run panel below (https://HOSTNAME/).
-
-Happy coding!
-The Cloud9 IDE team
-
-
-## Support & Documentation
-
-Visit http://docs.c9.io for support, or to learn more about using Cloud9 IDE. 
-To watch some training videos, visit http://www.youtube.com/user/c9ide
+## Model

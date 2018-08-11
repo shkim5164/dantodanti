@@ -21,6 +21,7 @@ Rails.application.routes.draw do
 
   get 'menu/execution'
   
+  get 'menu/bmain'
   root 'menu#main'
 
   # root 'public#index'

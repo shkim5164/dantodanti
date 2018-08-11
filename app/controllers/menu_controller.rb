@@ -14,4 +14,8 @@ class MenuController < ApplicationController
   def execution
     
   end
+  
+  def bmain
+    
+  end
 end
