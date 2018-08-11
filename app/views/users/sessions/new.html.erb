@@ -1,0 +1,69 @@
+<head>
+  <style>
+    .login {
+      padding: 20px;
+      margin-bottom: 20px;
+      border: 1px solid #bcbcbc;
+      text-align: center;
+
+    }
+    
+    h2 {
+      display: inline-block;
+      border-bottom: 1px solid #666;
+    }
+    
+    .form-inputs {
+      padding: 10px;
+    }
+    
+    .btn {
+      background: #000;
+      color: #fff;
+      width : 200px;
+    }
+    
+    .btn:hover {
+      border: 1px solid #000;
+      background: #fff;
+      color: #000;
+    }
+    .form-actions {
+      
+    }
+    
+    a {
+      color: black;
+    }
+    a:hover {
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+<div class="login">
+<h2>LOG IN</h2>
+<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="form-inputs">
+    <div class="input email optional user_email">
+      <label class="email optional" for="user_email">Email</label><br>
+      <input class="string email optional" autofocus="autofocus" type="email" value="" name="user[email]" id="user_email">
+    </div>
+    
+    <div class="input password optional user_password">
+      <label class="password optional" for="user_password">Password</label><br>
+      <input class="password optional" type="password" name="user[password]" id="user_password">
+    </div>
+    
+    <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+  </div>
+
+  <div class="form-actions">
+    <input type="submit" name="commit" value="Log in" class="btn">
+  </div>
+<% end %>
+<a href="/users/sign_up">SIGN UP</a><br>
+<a href="/users/password/new">SEARCH PASSWORD</a>
+<!--<%= render "users/shared/links" %>-->
+</div>
+</body>
