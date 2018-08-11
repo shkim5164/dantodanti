@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   devise_for :users
-  get 'mentorrq/index'
+  get 'mentorrq/index' => 'mentorrq#index'
   get 'mentorrq/write'
   get 'mentorrq/edit/:id' => 'mentorrq#edit'
   get 'mentorrq/delete'
@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   get 'mentoraw/make'
   get 'mentoraw/destroy/:a_id' => 'mentoraw#destroy'
   
-  get 'menu/main'
+  get 'menu/main' => 'menu#main'
 
   get 'menu/mentoring'
 
