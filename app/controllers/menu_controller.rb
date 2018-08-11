@@ -19,4 +19,7 @@ class MenuController < ApplicationController
   def bmain
     render :layout => 'bmain'
   end
+  
+  def cards
+  end
 end
