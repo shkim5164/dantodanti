@@ -1,0 +1,12 @@
+.navbar{
+    background-color: #e3f2fd;
+}
+
+#mainNav{
+    background-color: #e3f2fd;
+}
+
+
+.navbar-nav li a{
+    color:black!important;
+}
