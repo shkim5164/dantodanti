@@ -6,7 +6,7 @@
     background-color: white;
     border-bottom-style:double!important;
     z-index:2;
-    position:fixed;
+    position:relative;
     width:100%;
 }
 
@@ -22,7 +22,7 @@
     z-index:1;
     background-color:white;
     overflow-x:hidden;
-    padding-top:120px;
+    padding-top:30px;
     border-left-style:double!important;
     display:inline-block;
     float:right;
