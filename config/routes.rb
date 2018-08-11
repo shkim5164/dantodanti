@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  devise_for :users
   get 'mentorrq/index'
   get 'mentorrq/write'
   get 'mentorrq/edit/:id' => 'mentorrq#edit'
@@ -36,6 +37,8 @@ Rails.application.routes.draw do
   post '/comments' => 'comment#create'
   delete '/comments/:id' => 'comment#destory'
 
+
+  get 'menu/mypage'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

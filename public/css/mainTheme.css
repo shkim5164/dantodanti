@@ -1,0 +1,36 @@
+.navbar{
+    background-color: #e3f2fd;
+}
+
+#mainNav{
+    background-color: white;
+    border-bottom-style:double!important;
+}
+
+
+.navbar-nav li a{
+    color:black!important;
+}
+
+
+.sidnav{
+    height: 100%;
+    position:fixed;
+    z-index:1;
+    background-color:white;
+    overflow-x:hidden;
+    padding-top:20px;
+    border-left-style:double!important;
+    display:inline-block;
+    float:right;
+    
+}
+
+div.sidnav a{
+    text-align:center!important;
+    display:block;
+    font-size: 15px;
+    color: black;
+    text-decoration:none;
+    padding: 6px 1px 6px 1px;
+}

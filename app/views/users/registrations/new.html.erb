@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/css?family=Montserrat|Ubuntu" rel="stylesheet">
+
+  <style>
+  
+      body
+    {
+      font-family: 'Montserrat', sans-serif;
+      font-family: 'Ubuntu', sans-serif;
+    }
+    
+    .sign_up {
+      padding: 0 15px 15px 15px;
+      margin-bottom: 20px;
+
+      
+    }
+    
+    h2{
+     
+      font-family: 'Ubuntu', sans-serif;
+      display: inline-block;
+      border-bottom: 1px solid #666;
+    }
+  
+    .h2{
+       text-align: center;
+       padding: 30px 0px 20px 0px;
+    }
+
+    .form-inputs {
+      margin: 20px 100px 20px 100px;
+      padding: 50px 30px 30px 30px;
+      margin-bottom: 20px;
+      border: 1px solid #bcbcbc;
+      text-align: center;      
+
+    }
+    
+    .form {
+      font-size: 1.3em;
+      width: 50%;
+      display: inline-block;
+
+    }
+    
+    div {
+      padding-bottom: 10px;
+    }
+    
+    th {
+      width:250px;
+      border-bottom: 1px solid #dcdcdc;
+      text-align: left;
+    }
+   
+    td {
+      width: 400px;
+      border-bottom: 1px solid #dcdcdc;
+    }
+    
+    label {
+      padding: 10px 0px 0px 0px;
+    }
+    
+    .click {
+      padding: 30px 0px 10px 10px;
+    }
+    
+    .btn {
+      background: #000;
+      color: #fff;
+      width : 200px;
+    }
+    
+    .btn:hover {
+      border: 1px solid #000;
+      background: #fff;
+      color: #000;
+    }
+    
+    a {
+      color: black;
+    }
+    a:hover {
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+<div class="h2">
+<h2>SIGN UP</h2>
+</div>
+<div class="sign_up">  
+  
+  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= f.error_notification %>
+    
+    <div class="form-inputs">
+      <div class="form">
+      <form action="http://localhost/upload" method="post" enctype="multipart/form-data">
+      <fieldset>
+      <table>
+      <tr>  
+      <th>
+      <div class="input email required user_email"
+        <label class="email required" for="user_email">
+          이메일
+        </label>
+      </th>
+      <td>
+        <input class="string email required" autofocus="autofocus" required="required" aria-required="true" type="email" value="" name="user[email]" id="user_email" placeholder="dantodanti.dankook.ac.kr">
+      </td>
+      </tr>
+      </div>
+      
+      <tr>
+      <th>
+      <div class="input password required user_password field_with_hint">
+        <label class="password required" for="user_password">
+          비밀번호</label>
+      </th>
+      <td>
+        <input class="password required" required="required" aria-required="true" type="password" name="user[password]" id="user_password" placeholder="6 characters minimum">
+        <!--<span class="hint">6 characters minimum</span>-->
+      </td>  
+      </tr>
+      </div>
+      
+      <tr>
+      <th>
+      <div class="input password required user_password_confirmation">
+        <label class="password required" for="user_password_confirmation">
+        비밀번호 확인</label>
+       </th>
+       <td>
+        <input class="password required" required="required" aria-required="true" type="password" name="user[password_confirmation]" id="user_password_confirmation">
+      </td>
+      </tr>
+      </div>
+      
+      
+      <tr>
+      <th>
+      <div class="input string required user_userage">
+        <label class="string required" for="user_userage">
+          나이</label>
+      </th>
+      <td>
+        <input class="string required" autofocus="autofocus" required="required" aria-required="true" type="text" name="user[userage]" id="user_userage">
+        
+      </td>
+      </tr>
+      </div>
+      
+      
+      <tr>
+      <th>
+      <div class="input string required user_username">
+        <label class="string required" for="user_username">
+          이름</label>
+      </th>
+      <td>
+        <input class="string required" autofocus="autofocus" required="required" aria-required="true" type="text" name="user[username]" id="user_username">
+      </td>
+      </tr>
+      </div>
+      
+      
+      <tr>
+      <th>
+      <div class="input string required user_userdepartment">
+        <label class="string required" for="user_userdepartment">
+          학과</label>
+      </th>
+      <td>
+        <input class="string required" autofocus="autofocus" required="required" aria-required="true" type="text" name="user[userdepartment]" id="user_userdepartment">
+      </td>
+      </tr>
+      </div>
+      
+      <tr>
+      <th>  
+      <div class="input string required user_usernumber">
+        <label class="string required" for="user_usernumber">
+          학번</label>
+      </th>
+      <td>
+        <input class="string required" autofocus="autofocus" required="required" aria-required="true" type="text" name="user[usernumber]" id="user_usernumber">
+      </td>
+      </tr>
+      </div>
+    </table>
+    <div class="click">
+      <div class="form-actions">
+      <!--<%= f.button :submit, "Sign up" %>-->
+      <input type="submit" name="commit" value="Sign up" class="btn">
+    </div>
+  <% end %>
+  <a href="/users/sign_in">Log in</a>
+  <!--<%= render "users/shared/links" %>-->
+ </div>
+    </fieldset>
+    </form>
+    </div>
+    </div>
+    
+    
+</div>
+</body>
+</html>
