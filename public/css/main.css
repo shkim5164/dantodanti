@@ -1,0 +1,49 @@
+
+
+
+.mentorank{
+    display:inline-block;
+    background-color:red;
+    height:250px;
+    width : 480px;
+    margin-left:120px;
+    margin-right:25px;
+     border: 1px solid black; 
+}
+
+.mentorank-2{
+    text-align:right;
+    background-color: white;
+}
+
+
+
+
+.classrank{
+    display:inline-block;
+    background-color:green;
+    height:250px;
+    width : 480px;
+    margin-right:100px;
+     border: 1px solid black; 
+}
+
+.classrank-2{
+    text-align:right;
+    background-color: white;
+}
+
+.newests{
+    display:block;
+    background-color:blue;
+    height:250px;
+    width : 990px;
+    margin:auto;
+    margin-top:30px;
+     border: 1px solid black; 
+}
+
+.newests-2{
+    text-align:right;
+    background-color: white;
+}
