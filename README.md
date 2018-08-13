@@ -11,7 +11,7 @@
     -  view 없음
 3. mentoraw - 멘토신청게시판 댓글
     - view 없음
-4. menrorq - 멘토신청게시판
+4. mentorq - 멘토신청게시판
     - index - 메인
     - edit - 수정
     - show - 게시물확인

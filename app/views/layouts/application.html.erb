@@ -40,35 +40,33 @@
 </head>
 <body>
    <!-- 상단 네브바 -->
-    <nav class="navbar navbar-expand-lg navbar-light py-lg-4" id="mainNav">
+    <nav class="navbar navbar-expand-lg navbar-light py-lg-4 bg-light" id="mainNav">
       <div class="container">
         <a class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none" href="/menu/main">단토단티</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav mx-auto">
-            <li class="nav-item active px-lg-4">
-              <a class="nav-link text-uppercase text-expanded" href="/menu/main">MAIN
-                <span class="sr-only">(current)</span>
-              </a>
+        <div style="flex-wrap:nowrap;" class="collapse navbar-collapse justify-content-center" id="navbarResponsive">
+          <ul class="nav">
+            <li class="nav-item">
+              <a class="nav-link navbar-brand" href="/menu/main">홈으로</a>
             </li>
-            
-            <li class="nav-item px-lg-4">
-              <a class="nav-link text-uppercase text-expanded" href="/mentorrq/index">멘토링</a>
+            <li class="nav-item">
+              <a class="nav-link navbar-brand" href="/menu/mentoring">멘토링</a>
             </li>
-            <li class="nav-item px-lg-4">
-              <a class="nav-link text-uppercase text-expanded" href="/menu/execution">공개처형</a>
+            <li class="nav-item">
+              <a class="nav-link navbar-brand" href="/menu/execution">공개처형</a>
             </li>
-            
-            <li class="nav-item px-lg-4 aba">
-              <a class="nav-link text-uppercase text-expanded" href="/menu/mypage">내정보</a>
+          </ul>
+          <ul class="nav">
+            <li class="nav-item">
+              <a class="nav-link navbar-brand" href="/menu/mypage">내정보</a>
             </li>
-            <li class="nav-item px-lg-4 aba">
+            <li class="nav-item">
               <% if user_signed_in? %>
-              <a class="nav-link text-uppercase text-expanded" href="/users/sign_out">로그아웃</a>
+              <a class="nav-link navbar-brand" href="/users/sign_out">로그아웃</a>
               <% else %>
-              <a class="nav-link text-uppercase text-expanded" href="/users/sign_in">로그인</a>
+              <a class="nav-link navbar-brand" href="/users/sign_in">로그인</a>
               <% end %>
             </li>
           </ul>
@@ -77,17 +75,21 @@
     </nav>
     <!--네브바끝-->
     
+    
+    
     <!--사이드바-->
-    <div class="w3-sidebar w3-bar-block w3-card sidnav font-weight-bold" style="width:20%;right:0;">
+    <div class="navbar navbar-light bg-light sidnav font-weight-bold" style="width:20%;right:0;">
       <a href="#" class="w3-bar-item w3-button">멘토/멘티</a>
       <a href="#" class="w3-bar-item w3-button"><img src="/img/profile1.png" height="200px" width="auto" style="border-radius:50%"></a>
       <a href="#" class="w3-bar-item w3-button">이름</a>
     </div>
     
+ 
     
     
     
-  <div id="mainContents" style="width:80%; margin-top:91px; padding-top:30px;">
+    
+  <div class="container-fluid" id="mainContents" style="width:80%; padding-top:30px;">
     <%= yield %>
   </div>
   
