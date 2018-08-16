@@ -42,6 +42,8 @@ Rails.application.routes.draw do
   get 'menu/mypage'
   
   get 'menu/cards'
+  
+  get 'menu/design'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

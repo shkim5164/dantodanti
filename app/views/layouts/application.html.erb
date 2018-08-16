@@ -5,6 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
+    
+    <style>
+      .np {
+        padding: 0!important;
+        display: inline-block;
+        margin-top: 10px;
+      }
+      @media (max-width:500px) {
+        .sidnav {
+          display: none!important;
+        }
+      }
+      
+      .maincont {
+        justify-content: center;
+      }
+    </style>
   
   
   
@@ -80,7 +97,7 @@
     <!--네브바끝-->
     
     <!--사이드바-->
-    <div class="w3-sidebar w3-bar-block w3-card sidnav font-weight-bold" style="width:20%;right:0;">
+    <div class="w3-sidebar w3-bar-block w3-card sidnav font-weight-bold col-lg-2 col-md-2 col-sm-2 col-2 np" style="width:20%;right:0;">
       <a href="#" class="w3-bar-item w3-button">멘토/멘티</a>
       <a href="#" class="w3-bar-item w3-button"><img src="/img/profile1.png" height="200px" width="auto" style="border-radius:50%"></a>
       <a href="#" class="w3-bar-item w3-button">이름</a>
@@ -89,7 +106,7 @@
     
     
     
-  <div>
+  <div class="col-lg-10 col-md-10 col-sm-10 col-10" style="margin: 0 auto">
     <%= yield %>
   </div>
 </body>
