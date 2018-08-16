@@ -1,4 +1,5 @@
 class MenuController < ApplicationController
+  layout :admin_layout,:only=>[:bmain]
   def main
     
   end
@@ -13,5 +14,12 @@ class MenuController < ApplicationController
 
   def execution
     
+  end
+  
+  def bmain
+    render :layout => 'bmain'
+  end
+  
+  def cards
   end
 end

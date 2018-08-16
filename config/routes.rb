@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
-  get 'mentorrq/index'
+  devise_for :users
+  get 'mentorrq/index' => 'mentorrq#index'
   get 'mentorrq/write'
   get 'mentorrq/edit/:id' => 'mentorrq#edit'
   get 'mentorrq/delete'
@@ -13,13 +14,15 @@ Rails.application.routes.draw do
   get 'mentoraw/make'
   get 'mentoraw/destroy/:a_id' => 'mentoraw#destroy'
   
-  get 'menu/main'
+  get 'menu/main' => 'menu#main'
 
   get 'menu/mentoring'
 
   get 'menu/ranking'
 
   get 'menu/execution'
+  
+  get 'menu/bmain'
   
   root 'menu#main'
 
@@ -35,6 +38,10 @@ Rails.application.routes.draw do
   post '/comments' => 'comment#create'
   delete '/comments/:id' => 'comment#destory'
 
+
+  get 'menu/mypage'
+  
+  get 'menu/cards'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
