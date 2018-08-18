@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180813131832) do
+ActiveRecord::Schema.define(version: 20180817071614) do
 
   create_table "answers", force: :cascade do |t|
     t.string   "name"
@@ -62,6 +62,16 @@ ActiveRecord::Schema.define(version: 20180813131832) do
   add_index "impressions", ["impressionable_type", "impressionable_id", "session_hash"], name: "poly_session_index"
   add_index "impressions", ["impressionable_type", "message", "impressionable_id"], name: "impressionable_type_message_index"
   add_index "impressions", ["user_id"], name: "index_impressions_on_user_id"
+
+  create_table "likes", force: :cascade do |t|
+    t.integer  "blacklist_id"
+    t.integer  "user_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "likes", ["blacklist_id"], name: "index_likes_on_blacklist_id"
+  add_index "likes", ["user_id"], name: "index_likes_on_user_id"
 
   create_table "lists", force: :cascade do |t|
     t.string   "name"
