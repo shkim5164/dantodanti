@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   
   get 'menu/main' => 'menu#main'
   get 'menu/mentoring' => 'menu#cards'
-  get 'menu/execution'
+  get 'menu/execution' => 'public#index'
   get 'menu/bmain'
   get 'menu/mypage' => 'menu#mypage'
   

@@ -1,10 +1,10 @@
 class MenuController < ApplicationController
-  layout :admin_layout,:only=>[:bmain, :design, :cards]
+  layout :admin_layout,:only => [:bmain, :design, :cards]
+  
   def main
   end
 
   def mentoring
-    render :layout => 'cards'
   end
 
   def ranking
@@ -22,6 +22,7 @@ class MenuController < ApplicationController
   end
   
   def cards
+    render :layout => 'cards'
   end
   
   def mypage
