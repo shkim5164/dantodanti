@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
-  devise_for :users
+  devise_for :users, :controllers => { registrations: 'users/registrations' }
+
   get 'mentorrq/index' => 'mentorrq#index'
   get 'mentorrq/write'
   get 'mentorrq/edit/:id' => 'mentorrq#edit'
@@ -41,5 +42,6 @@ Rails.application.routes.draw do
   get 'menu/cards'
   
   get 'menu/design'
+  
  
 end
