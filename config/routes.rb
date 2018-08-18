@@ -31,6 +31,8 @@ Rails.application.routes.draw do
   get 'public/index'
   get 'public/show'
   
+  post 'public/:blacklist_id/like' => 'publics#like_toggle'
+  
   #comment
   post '/comments' => 'comment#create'
   delete '/comments/:id' => 'comment#destory'
