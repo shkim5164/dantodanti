@@ -1,5 +1,5 @@
 class MenuController < ApplicationController
-  layout :admin_layout,:only => [:bmain, :design, :cards]
+  layout :admin_layout,:only => [:bmain, :design]
   
   def main
   end
@@ -22,7 +22,6 @@ class MenuController < ApplicationController
   end
   
   def cards
-    render :layout => 'cards'
   end
   
   def mypage
