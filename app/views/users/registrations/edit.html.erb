@@ -1,27 +1,154 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<DOCTYPE html!>
+<html>
+ <head>
+    <style>
+        .my_page {
+            width:400px;
+            height:100px;
+            border: 3px double #f1f1f1;
+            line-height: 40px;
+            padding:15px 100px;
+        }
+        
+        .mypage {
+            margin: 20px;
+            text-align:center;
+        }
+        .img {
+           border-radius: 300px;
+           margin:50px 50px 0px 50px;
+        }
+        
+        .writing {
+            padding: 20px 0px 0px 300px;
+        }
+        
+        a:link {
+          color: black;
+          text-decoration: none;
+        }
+        
+        input {
+           width: 200px;
+        }
+        
+        
+      
+        
+       
+    </style>
+     
+ </head>
+ <body>
+    <div class="mypage">
+      <span class="my_page">MY PAGE <%= resource_name.to_s.humanize %></span>
+      <div class="form-inputs">
+        <%= simple_form_for(resource, as: resource_name, url: '/users', html: { method: :put }) do |f| %>
+        <%= f.error_notification %>
+        <img class="img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0_2nqm0H20gpO-Pf9BsBwuAYt3McWcb-6rFs37i244h71Lyrnkg" width="200px" height="200px">
+        <div class="writing">
+         <table class="table table-borderless">
+          <thead>
+          <tr>
+            <th scope="col"><div class="input email required user_email">
+              <label class="email required" for="user_email">
+                <abbr title="required"></abbr> 이메일</label></th>
+            <th scope="col"><input class="string email required" autofocus="autofocus" required="required" aria-required="true" type="email" value="<%= current_user.email %>" name="user[email]" id="user_email"></div>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row"><div class="input password required user_current_password field_with_hint">
+            <label class="password required" for="user_current_password">
+              <abbr title="required"></abbr>현재비밀번호</label></th>
+            <td> <input class="password required" required="required" aria-required="true" type="password" name="user[current_password]" id="user_current_password">
+              <span class="hint">we need your current password to confirm your changes</span></div></td>
+          </tr>
+          
+          <tr>
+            <th scope="row"><div class="input password optional user_password field_with_hint">
+                <label class="password optional" for="user_password">비밀번호</label></div></th>
+            <td> <input class="password optional" type="password" name="user[password]" id="user_password">
+                <span class="hint">leave it blank if you don't want to change it</span></td>
+          </tr>
+        
+          <tr>
+            <th scope="row"><div class="input password optional user_password_confirmation"><label class="password optional" for="user_password_confirmation">비밀번호확인</label></th>
+            <td><input class="password optional" type="password" name="user[password_confirmation]" id="user_password_confirmation"></div></td>
+          </tr>
+          
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= f.error_notification %>
+          <tr>
+            <th scope="row">나이</th>
+            <td colspan="2"><input class="string required" autofocus="autofocus" required="required" aria-required="true" type="text" name="user[userage]" id="user_userage"></td>
+          </tr>
+           <tr>
+            <th scope="row">이름</th>
+            <td colspan="2"><input class="string required" autofocus="autofocus" required="required" aria-required="true" type="text" name="user[username]" id="user_username"></td>
+          </tr>
+           <tr>
+            <th scope="row">학과</th>
+            <td colspan="2"><input class="string required" autofocus="autofocus" required="required" aria-required="true" type="text" name="user[userdepartment]" id="user_userdepartment"></td>
+          </tr>
+           <tr>
+            <th scope="row">학번</th>
+            <td colspan="2"><input class="string required" autofocus="autofocus" required="required" aria-required="true" type="text" name="user[usernumber]" id="user_usernumber"></td>
+          </tr>
+        </tbody>
+      </table>
+        </div>
+      </div>
+      <div class="form-actions">
+         <input type="submit" name="commit" value="수정" class="btn">
+          <a href="/mentorrq/index"><button class="btn btn-secondary btn-lg">멘토신청하러가기</button></a>
+      </div>
+     <% end %>
 
-  <div class="form-inputs">
-    <%= f.input :email, required: true, autofocus: true %>
+    </div>
+ </body>        
+        
+</html>
 
-    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
-    <% end %>
 
-    <%= f.input :password, autocomplete: "off", hint: "leave it blank if you don't want to change it", required: false %>
-    <%= f.input :password_confirmation, required: false %>
-    <%= f.input :current_password, hint: "we need your current password to confirm your changes", required: true %>
-  </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Update" %>
-  </div>
-<% end %>
 
-<h3>Cancel my account</h3>
 
-<p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
-<%= link_to "Back", :back %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+<!--    <div class="input password required user_current_password field_with_hint"><label class="password required" for="user_current_password"><abbr title="required">*</abbr> Current password</label><input class="password required" required="required" aria-required="true" type="password" name="user[current_password]" id="user_current_password"><span class="hint">we need your current password to confirm your changes</span></div>-->
+  
+  
+  
+  
+
+<!--<h3>Cancel my account</h3>-->
+
+<!--<p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>-->
+
+<!--<%= link_to "Back", :back %>-->

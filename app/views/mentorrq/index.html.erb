@@ -2,27 +2,53 @@
 <html lang="en">
 <head>
   <style>
-    
-  .rmf { 
+  .wpahr { 
     width :300px;
   }  
   
   .table {
-    width: 50%;
-    margin :50px 150px 0px 150px;
+    width: 100%;
+    text-align: center;
   }
-    
+  
+  .box {
+    padding:50px 100px;
+  }
+  
+  .wkrtjdwk{
+    width: 200px;
+  }
+  
+  .qjsgh {
+    width: 100px;
+  }
+  
+  a {
+     text-align: right;
+  }
+  
+  thead {
+    background-color:black;
+    color: white;
+  }
+  
+  tr,th,td{
+    border:1px solid white;
+
+  }
   </style>
   
 </head>
 <body>
-<div>
-<table class="table">
+<div class="box">
+ 
+<table class="table table-striped">
+   <h1>멘토신청게시판</h1>
   <thead>
     <tr>
-      <th scope="col">번호</th>
-      <th scope="col" class="rmf">글</th>
-      <th scope="col">작성자</th>
+      <th scope="col" class="qjsgh">번호</th>
+      <th scope="col" class="wpahr">제목</th>
+      <th scope="col" class="wkrtjdwk">작성자</th>
     </tr>
   </thead>
   <tbody>
@@ -36,10 +62,12 @@
       <% end %>    
     
   </tbody>
+
 </table>
+<p align="right"><a href="/mentorrq/write"><button class="btn btn-outline-dark">멘토신청하러가기</button></a></p>
+
 </div>
 <br>
-<a href="/mentorrq/write"><button>멘토신청하러가기</button></a>
 
 <script src="js/jquery-3.1.js"></script>
 <script src="js/bootstrap.js"></script>
