@@ -41,4 +41,10 @@ class MentoringController < ApplicationController
         @suup.destroy
         redirect_to "/menu/mentoring"
     end
+    
+    #검색기능
+    def search
+        @word=params[:title]
+        @search_s=Suup.search_for(params[:title])
+    end
 end

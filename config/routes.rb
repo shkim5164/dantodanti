@@ -50,4 +50,6 @@ Rails.application.routes.draw do
   get 'mentoring/create'
   get 'mentoring/show/:id' => 'mentoring#show'
   delete 'mentoring/:id' => 'mentoring#delete'
+  
+  get 'mentoring/search'
 end
