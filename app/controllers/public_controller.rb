@@ -35,14 +35,4 @@ class PublicController < ApplicationController
    end
 
 
-   def like_toggle
-    like = Like.find_by(user_id: current_user.id, post_id: params[:blacklist_id])
-    #좋아요가 눌렸는지 체크
-    if like.nil?
-      Like.create(user_id: current_user.id, post_id: params[:blacklist_id])
-    else
-      like.destroy
-    end
-    redirect_to "public/:blacklist_id"
-   end
 end

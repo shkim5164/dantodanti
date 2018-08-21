@@ -4,7 +4,9 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
          
-  has_many :blacklist
+  has_many :blacklists
   has_many :likes
   has_many :sinchungs
+  has_many :lists
+  belongs_to :mentor
 end
