@@ -30,7 +30,7 @@ Rails.application.routes.draw do
   get 'public/index'
   get 'public/show'
   
-  post 'public/:blacklist_id/like' => 'publics#like_toggle'
+  post 'like' => 'public#like_toggle'
   
   #comment
   post '/comments' => 'comment#create'
