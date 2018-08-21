@@ -31,8 +31,9 @@ class PublicController < ApplicationController
    def log_impression
       @hit_post = Blacklist.find(params[:id])
       # this assumes you have a current_user method in your authentication system
-      @hit_post.impressions.create(ip_address: request.remote_ip) #user_id: current_user.id 오류
+      @hit_post.impressions.create(ip_address: request.remote_ip, user_id: current_user.id) # 오류
    end
 
 
+    
 end
