@@ -55,6 +55,8 @@
       <th scope="col" class="qjsgh">번호</th>
       <th scope="col" class="wpahr">제목</th>
       <th scope="col" class="wkrtjdwk">작성자</th>
+      <th scope="col" class="wkrtjdwk">등업</th>
+
     </tr>
   </thead>
   <tbody>
@@ -63,7 +65,14 @@
         <tr>
           <th scope="row"><%= d.id %></th>
           <td><a href="/mentorrq/show/<%= d.id %>"><%= d.content %></td></a>
-          <td><%= d.name %></td>
+          <td><%= d.user.email %></td>
+          <td>
+            <% if Mentor.where(user_id: d.user_id).empty? %>
+            <a href="/mentorrq/levelup/<%= d.user_id %>">등업</a>
+            <% else %>
+            <span>이미 등업</span>
+            <% end %>
+          </td>
         </tr>
       <% end %>    
     

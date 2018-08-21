@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180821034400) do
+ActiveRecord::Schema.define(version: 20180821055347) do
 
   create_table "answers", force: :cascade do |t|
     t.string   "name"
@@ -74,8 +74,14 @@ ActiveRecord::Schema.define(version: 20180821034400) do
   add_index "likes", ["user_id"], name: "index_likes_on_user_id"
 
   create_table "lists", force: :cascade do |t|
-    t.string   "name"
     t.text     "content"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "mentors", force: :cascade do |t|
+    t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -91,7 +97,8 @@ ActiveRecord::Schema.define(version: 20180821034400) do
     t.string   "title"
     t.string   "content"
     t.integer  "mento_id"
-    t.datetime "time"
+    t.datetime "sttime"
+    t.datetime "endtime"
     t.string   "place"
     t.string   "phone"
     t.integer  "subject"
