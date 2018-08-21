@@ -11,6 +11,7 @@ class MenuController < ApplicationController
   end
 
   def execution
+    render :layout => 'execution'
   end
   
   def bmain

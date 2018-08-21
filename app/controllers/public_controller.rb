@@ -1,4 +1,5 @@
 class PublicController < ApplicationController
+    layout :admin_layout, :only => [:execution, :show]
     
     def write
         @token=form_authenticity_token
@@ -15,6 +16,7 @@ class PublicController < ApplicationController
     
     def index
         @allrecord = Blacklist.all
+        render :layout => 'execution'
     end
     
     def show
@@ -24,6 +26,7 @@ class PublicController < ApplicationController
         @s_major = @findone.major
         @s_number = @findone.number
         @comments = Comment.where(blacklist_id: params[:id])
+        render :layout => 'show'
     end
     
     before_action :log_impression, :only=> [:show]
