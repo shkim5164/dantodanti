@@ -6,4 +6,5 @@ class User < ActiveRecord::Base
          
   has_many :blacklist
   has_many :likes
+  has_many :sinchungs
 end
