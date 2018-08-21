@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'impressionist'
-
+gem 'kaminari'
 gem 'devise'
 gem 'rails_db'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

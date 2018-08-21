@@ -1,6 +1,5 @@
-
 <a href="/public/write">신고하기</a>
-<!--<table class="table" style="width:50%; margin:auto; text-align:center;">
+<table class="table" style="width:50%; margin:auto; text-align:center;">
   <thead class="thead-white">
     <tr>
       <th scope="col">랭킹</th>
@@ -16,26 +15,22 @@
           <td><a href="/public/show/<%= d.id %>"><%= d.name %></a></td>
           <td><a href="/public/show/<%= d.id %>"><%= d.major %></a></td>
           <td><a href="/public/show/<%= d.id %>"><%= d.number %></a></td>
-          
         </tr>
     <% end %>
   </tbody>
-</table>-->
+</table>
 
-<!--<div class="row col-lg-10" style="margin:auto; padding-left:15px; padding-right:15px;">
-      <% @allrecord.each do |m| %>
-          <div class="col-lg-4 col-sm-6 portfolio-item">
-            <div class="card h-100">
-              <a href="/public/show/<%= m.id %>"><img class="card-img-top" src="https://img00.deviantart.net/1858/i/2009/102/5/2/one_piece_wanted_poster_psd_by_akuma_no_mi_bu.png" alt=""></a>
-              
-              
-            </div>
-          </div>
-      <% end %>
-    </div>-->
-  
-    <% @allrecord.each do |d| %>
-    
+<div class="row col-lg-10" style="margin:auto; padding-left:15px; padding-right:15px;">
+  <% @allrecord.each do |m| %>
+    <div class="col-lg-4 col-sm-6 portfolio-item">
+        <div class="card h-100">
+          <a href="/public/show/<%= m.id %>"><img class="card-img-top" src="https://img00.deviantart.net/1858/i/2009/102/5/2/one_piece_wanted_poster_psd_by_akuma_no_mi_bu.png" alt=""></a>
+        </div>
+    </div>
+  <% end %>
+</div>
+
+<% @allrecord.each do |d| %>
     <div class="row text-center">
       <div class="col-lg-3 col-md-6 mb-4">
         <div class="card">
@@ -51,7 +46,6 @@
           </div>
         </div>
       </div>
-      </div>
-      <% end %>
-      </div>
+    </div>
+<% end %>
     

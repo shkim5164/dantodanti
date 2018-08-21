@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
-  devise_for :users
+  devise_for :users, :controllers => { registrations: 'users/registrations' }
+
   get 'mentorrq/index' => 'mentorrq#index'
   get 'mentorrq/write'
   get 'mentorrq/edit/:id' => 'mentorrq#edit'
@@ -16,7 +17,7 @@ Rails.application.routes.draw do
   
   get 'menu/main' => 'menu#main'
   get 'menu/mentoring' => 'menu#cards'
-  get 'menu/execution'
+  get 'menu/execution' => 'public#index'
   get 'menu/bmain'
   get 'menu/mypage' => 'menu#mypage'
   
@@ -30,6 +31,8 @@ Rails.application.routes.draw do
   get 'public/index'
   get 'public/show'
   
+  post 'public/:blacklist_id/like' => 'publics#like_toggle'
+  
   #comment
   post '/comments' => 'comment#create'
   delete '/comments/:id' => 'comment#destory'
@@ -39,6 +42,7 @@ Rails.application.routes.draw do
   get 'menu/cards'
   
   get 'menu/design'
+  
  
  
   get 'mentoring/new'
