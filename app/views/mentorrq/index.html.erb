@@ -42,6 +42,8 @@
   }
   </style>
   
+ 
+
 </head>
 <body>
 <div class="box">
@@ -57,7 +59,7 @@
   </thead>
   <tbody>
   
-      <% @allrecord.each do |d| %>
+      <% @posts.each do |d| %>
         <tr>
           <th scope="row"><%= d.id %></th>
           <td><a href="/mentorrq/show/<%= d.id %>"><%= d.content %></td></a>
@@ -70,15 +72,9 @@
 </table>
 
 <p align="right"><a href="/mentorrq/write"><button class="btn btn-outline-dark">멘토신청하러가기</button></a></p>
-<nav aria-label="Page navigation example">
-  <ul class="pagination">
-    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-    <li class="page-item"><a class="page-link" href="#">1</a></li>
-    <li class="page-item"><a class="page-link" href="#">2</a></li>
-    <li class="page-item"><a class="page-link" href="#">3</a></li>
-    <li class="page-item"><a class="page-link" href="#">Next</a></li>
-  </ul>
-</nav>
+<%= paginate @posts %>
+
+
 </div>
 
 <script src="js/jquery-3.1.js"></script>
