@@ -46,7 +46,8 @@ Rails.application.routes.draw do
  
  
   get 'mentoring/new'
-  get 'mentoring/edit'
+  get 'mentoring/edit/:id' => 'mentoring#edit'
   get 'mentoring/create'
-  
+  get 'mentoring/show/:id' => 'mentoring#show'
+  delete 'mentoring/:id' => 'mentoring#delete'
 end
