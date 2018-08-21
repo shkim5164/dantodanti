@@ -1,0 +1,22 @@
+<div class="container">
+    <div class="search_box">
+    <form class="form-inline" action="/mentoring/search" method="get">
+    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="title">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+</div>
+
+<h1>"<%= @word %>"에 대한 검색결과 입니다.</h1>
+<div class="search_result">
+    <% if @search_s.empty? %>
+        <p>검색결과가 없습니다.</p>
+    <% else %>
+    <% @search_s.each do |suup| %>
+        
+            <div class="s_info col-lg-8 col-xs-12 align-middle">
+            <h1><%= suup.title %></h1>
+            </div>
+        
+    <% end %>
+    <% end %>
+</div>    

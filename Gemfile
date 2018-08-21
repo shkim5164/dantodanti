@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem "scoped_search"
 gem 'impressionist'
 gem 'kaminari'
 gem 'devise'
