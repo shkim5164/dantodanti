@@ -31,7 +31,7 @@ Rails.application.routes.draw do
   get 'public/index'
   get 'public/show'
   
-  post 'public/:blacklist_id/like' => 'publics#like_toggle'
+  post 'public/:post_id/like' => 'public#like_toggle'
   
   #comment
   post '/comments' => 'comment#create'
@@ -43,5 +43,15 @@ Rails.application.routes.draw do
   
   get 'menu/design'
   
+  get 'mentorrq/levelup/:id' => 'mentorrq#levelup'
+
  
+ 
+  get 'mentoring/new'
+  get 'mentoring/edit/:id' => 'mentoring#edit'
+  post 'mentoring/create'
+  get 'mentoring/show/:id' => 'mentoring#show'
+  delete 'mentoring/:id' => 'mentoring#delete'
+  
+  get 'mentoring/search'
 end

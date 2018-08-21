@@ -16,7 +16,7 @@
     <h2 class="text-center">공개처형 대상을 소개합니다!</h2>
     <hr width="450px"/>
     <span style="margin-left:52rem">
-    <i class="fa fa-frown-o" style="font-size:1.25rem;"><%= "#{@findone.likes.size}" %></i>
+    <i class="fa fa-frown-o" style="font-size:1.25rem;">11</i>
     <i class="fa fa-eye" style="font-size:1.25rem;"><%= "#{@findone.unique_impression_count}" %></i>
     <i class="fa fa-history" style="font-size:1.25rem;">3분 전</i>
     </span>
@@ -36,23 +36,11 @@
       </div>
       <br>
       <span style="margin-left:47em">
-      <% if current_user.acts_like? (@hit_post) %>
-      <form action='/public/<%= @hit_post.id %>/like' method='post'>
+
       <button type="button" style="background-color: #4CAF50; border: none; color: white; padding: 15px 32px;
                                    text-align: center; text-decoration: none; display: inline-block; font-size: 16px;">
            <i class="fa fa-frown-o" style="font-size:1.5rem;">실망이에요</i>
       </button>
-      </form>
-      
-      <% else %>
-      <form action='/public/<%= @hit_post.id %>/like' method='post'>
-      <button type="button" style="background-color: #4CAF50; border: none; color: white; padding: 15px 32px;
-                                   text-align: center; text-decoration: none; display: inline-block; font-size: 16px;">
-           <i class="fa fa-frown-o" style="font-size:1.5rem;">실망이에요</i>
-      </button>
-      </form>
-      
-      <% end %>
       </span>
 <hr  />
 <!--여기부터 답변 양식입니다.-->
@@ -72,5 +60,4 @@
     <a href='/comments/<%= c.id %>' data-method='delete'>삭제</a>
     </p>
 <% end %>
-
 
