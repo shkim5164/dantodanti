@@ -1,0 +1,15 @@
+class CreateSuups < ActiveRecord::Migration
+  def change
+    create_table :suups do |t|
+      t.string :title
+      t.string :content
+      t.integer :mento_id
+      t.timestamp :time
+      t.string :place
+      t.string :phone
+      t.integer :subject
+      t.integer :limitman
+      t.timestamps null: false
+    end
+  end
+end

@@ -40,4 +40,9 @@ Rails.application.routes.draw do
   
   get 'menu/design'
  
+ 
+  get 'mentoring/new'
+  get 'mentoring/edit'
+  get 'mentoring/create'
+  
 end
