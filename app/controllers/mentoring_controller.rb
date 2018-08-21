@@ -12,7 +12,7 @@ class MentoringController < ApplicationController
         @suup.title=params[:title]
         @suup.content=params[:content]
         @suup.save
-        redirect_to "/mentoring/show/#{suup.id}"
+        redirect_to "/mentoring/show/#{@suup.id}"
         
     end
     

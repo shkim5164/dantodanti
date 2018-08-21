@@ -86,7 +86,7 @@ ActiveRecord::Schema.define(version: 20180821055347) do
   create_table "suups", force: :cascade do |t|
     t.string   "title"
     t.string   "content"
-    t.integer  "mento_id"
+    t.integer  "mentor_id"
     t.datetime "sttime"
     t.datetime "endtime"
     t.string   "place"

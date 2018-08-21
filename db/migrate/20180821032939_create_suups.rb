@@ -3,7 +3,7 @@ class CreateSuups < ActiveRecord::Migration
     create_table :suups do |t|
       t.string :title
       t.string :content
-      t.integer :mento_id
+      t.integer :mentor_id
       t.timestamp :sttime
       t.timestamp :endtime
       t.string :place
