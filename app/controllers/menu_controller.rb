@@ -1,5 +1,6 @@
 class MenuController < ApplicationController
-  layout :admin_layout,:only=>[:bmain, :design]
+  layout :admin_layout,:only => [:bmain, :design]
+  
   def main
   end
 
