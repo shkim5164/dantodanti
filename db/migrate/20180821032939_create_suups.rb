@@ -4,11 +4,13 @@ class CreateSuups < ActiveRecord::Migration
       t.string :title
       t.string :content
       t.integer :mento_id
-      t.timestamp :time
+      t.timestamp :sttime
+      t.timestamp :endtime
       t.string :place
       t.string :phone
       t.integer :subject
       t.integer :limitman
+      
       t.timestamps null: false
     end
   end
