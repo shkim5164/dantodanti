@@ -1,11 +1,67 @@
-<%= @mentor_id %>
-<%= @mentor_email %>
-<%= @mentor_name %>
-<%= @mentor_age %>
-<%= @mentor_department %>
-<%= @mentor_number %>
 
 
 
+<div class="row">
+    <!--좌여백-->
+    <div class="col"></div>
+    
+    <!--메인콘텐츠-->
+    <div class="mypage col-6 text-align-center">
 
+        <div class="user-container">
+        <div class="user-profile">
+          <% if current_user.image.url.nil? %>
+          <img class="image" src="/img/cute.jpg" class="user-profile-image" alt="profile">
+          <p>프로필이 없습니다. 프로필을 등록해주세요</p>
+          <%= form_tag '/menu/create', method: :post, class: 'user-profile-form',multipart: true do %>
+            <input type="file" name="image" value="imgae">
+            <input type="hidden" name="user" value="<%=current_user.id%>">
+            <input type="submit">
+          <% end %>
+          <% else %>
+          <img src="<%=current_user.image.url%>" class="user-profile-image" alt="profile">
+          <%= form_tag '/menu/create', method: :post, class: 'user-profile-form',multipart: true do %>
+            <input type="file" name="image" value="imgae">
+            <input type="hidden" name="user" value="<%=current_user.id%>">
+            <input type="submit">
+          <% end %>
+          <% end %>
+        </div>
+        </div>
+        <hr>
+        
 
+         <table class="table table-borderless">
+        <thead>
+        <tr>
+        <th scope="col"><div class="input email required user_email">
+            <label class="email required" for="user_email">
+            <abbr title="required"></abbr> 이메일</label></th>
+            <td scope="col"><input class="string email required" autofocus="autofocus" required="required" aria-required="true" type="email" value="<%= @mentor_email %>" name="user[email]" id="user_email"></div>
+            </td>
+         </tr>
+        </thead>
+        <tbody>
+          
+          <tr>
+            <th scope="row">나이</th>
+            <td colspan="2"><input class="string required" autofocus="autofocus" required="required" aria-required="true" type="text" name="user[userage]" id="user_userage" value="<%= @mentor_age %>"></td>
+          </tr>
+           <tr>
+            <th scope="row">이름</th>
+            <td colspan="2"><input class="string required" autofocus="autofocus" required="required" aria-required="true" type="text" name="user[username]" id="user_username" value="<%= @mentor_name %>"></td>
+          </tr>
+           <tr>
+            <th scope="row">학과</th>
+            <td colspan="2"><input class="string required" autofocus="autofocus" required="required" aria-required="true" type="text" name="user[userdepartment]" id="user_userdepartment" value="<%= @mentor_department %>"></td>
+          </tr>
+           <tr>
+            <th scope="row">학번</th>
+            <td colspan="2"><input class="string required" autofocus="autofocus" required="required" aria-required="true" type="text" name="user[usernumber]" id="user_usernumber" value="<%= @mentor_number %>"></td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+      <!--우여백-->
+      <div class="col"></div>
+</div>

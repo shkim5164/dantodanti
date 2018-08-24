@@ -44,7 +44,11 @@ class MenuController < ApplicationController
     @user.image = params[:image]
     @user.save
     #redirect_back(fallback_location: root_path)
+
     redirect_to '/menu/mypage'
+
+
+    redirect_to '/users/edit'
 
   end
 end

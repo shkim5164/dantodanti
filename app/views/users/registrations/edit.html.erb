@@ -13,6 +13,18 @@
     th{
         text-align :right;
     }
+    
+    .image {
+        border-radius: 300px;
+        width: 200px;
+        height: 200px;
+    }
+    
+    .user-profile-image {
+        border-radius: 300px;
+        width: 200px;
+        height: 200px;
+    }
 </style>
 </head>
     
@@ -27,13 +39,31 @@
       <span class="my_page"><%= resource_name.to_s.humanize %></span>
       
       <div class="form-inputs">
+        
+        
+        <div class="user-container">
+        <div class="user-profile">
+          <% if current_user.image.url.nil? %>
+          <img class="image" src="/img/cute.jpg" class="user-profile-image" alt="profile">
+          <p>프로필이 없습니다. 프로필을 등록해주세요</p>
+          <%= form_tag '/menu/create', method: :post, class: 'user-profile-form',multipart: true do %>
+            <input type="file" name="image" value="imgae">
+            <input type="hidden" name="user" value="<%=current_user.id%>">
+            <input type="submit">
+          <% end %>
+          <% else %>
+          <img src="<%=current_user.image.url%>" class="user-profile-image" alt="profile">
+          <%= form_tag '/menu/create', method: :post, class: 'user-profile-form',multipart: true do %>
+            <input type="file" name="image" value="imgae">
+            <input type="hidden" name="user" value="<%=current_user.id%>">
+            <input type="submit">
+          <% end %>
+          <% end %>
+        </div>
+        </div>
+        <hr>
         <%= simple_form_for(resource, as: resource_name, url: '/users', html: { method: :put }) do |f| %>
         <%= f.error_notification %>
-        
-        <img class="img mt-3" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0_2nqm0H20gpO-Pf9BsBwuAYt3McWcb-6rFs37i244h71Lyrnkg" width="200px" height="200px" style="border-radius: 300px;">
-        
-        <hr>
-        
         <table class="table table-borderless">
           <thead>
           <tr>
@@ -73,6 +103,7 @@
            <tr>
             <th scope="row">이름</th>
             <td colspan="2"><input class="string required" autofocus="autofocus" required="required" aria-required="true" type="text" name="user[username]" id="user_username" value=""></td>
+            <td colspan="2"><input class="string required" autofocus="autofocus" required="required" aria-required="true" type="text" name="user[username]" id="user_username"></td>
           </tr>
            <tr>
             <th scope="row">학과</th>
