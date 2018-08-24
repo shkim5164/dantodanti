@@ -28,4 +28,14 @@ class MenuController < ApplicationController
   
   def mypage
   end
+  
+  def sugang
+    @sinchung=Sinchung.new
+    @sinchung.user_id=params[:user_id]
+    @sinchung.suup_id=params[:suup_id]
+    @sinchung.save
+    
+    redirect_to '/menu/mentoring'
+    
+  end
 end

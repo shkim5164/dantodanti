@@ -54,4 +54,6 @@ Rails.application.routes.draw do
   delete 'mentoring/:id' => 'mentoring#delete'
   
   get 'mentoring/search'
+  
+  get 'menu/sugang/:suup_id/:user_id' => 'menu#sugang'
 end
