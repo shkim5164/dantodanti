@@ -42,7 +42,7 @@
             <a class="nav-link navbar-brand" href="/menu/execution"><img src="/svg/002-devil.svg" align="middle" height="20px" width="auto">공개처형</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link navbar-brand" href="/users/edit"><img src="/svg/006-emotion.svg" align="middle" height="20px" width="auto">내정보</a>
+            <a class="nav-link navbar-brand" href="/menu/mypage"><img src="/svg/006-emotion.svg" align="middle" height="20px" width="auto">내정보</a>
           </li>
         </ul>
         </div>
@@ -106,21 +106,21 @@
         <tbody>
           <tr>
             <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
+            <td><%=@suup_info.first.title%></td>
+            <td><%=@suup_info.first.content%></td>
+            <td>학생수</td>
           </tr>
           <tr>
             <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
+            <td><%=@suup_info.second.title%></td>
+            <td><%=@suup_info.second.content%></td>
+            <td>학생수</td>
           </tr>
           <tr>
             <th scope="row">3</th>
-            <td>Larry the Bird</td>
-            <td>Larry the Bird</td>
-            <td>@twitter</td>
+            <td><%=@suup_info.last.title%></td>
+            <td><%=@suup_info.last.content%></td>
+            <td>학생수</td>
           </tr>
         </tbody>
       </table>

@@ -91,6 +91,8 @@ GEM
       activerecord
       kaminari-core (= 1.1.1)
     kaminari-core (1.1.1)
+    like_system (0.0.9)
+      rails (>= 4.1, < 5.1)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
     mail (2.6.6)
@@ -216,6 +218,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   kaminari
+  like_system
   rails (= 4.2.5)
   rails_db
   sass-rails (~> 5.0)

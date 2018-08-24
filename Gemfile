@@ -6,6 +6,8 @@ gem 'kaminari'
 gem 'devise'
 gem 'rails_db'
 
+gem 'like_system'
+
 gem 'carrierwave'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
