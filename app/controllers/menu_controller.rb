@@ -1,6 +1,6 @@
 class MenuController < ApplicationController
   layout :admin_layout,:only => [:bmain, :design]
-  
+  before_action :authenticate_user!
   def main
   end
 

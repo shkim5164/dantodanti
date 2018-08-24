@@ -1,4 +1,5 @@
 class MentorrqController < ApplicationController
+  before_action :authenticate_user!
   def index
     @allrecord = List.all #모델에 있는 모든 데이터 불러오기
     @d = Mentor.first

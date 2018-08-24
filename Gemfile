@@ -6,6 +6,7 @@ gem 'kaminari'
 gem 'devise'
 gem 'rails_db'
 gem 'jquery-countdown-rails'
+gem 'tinymce-rails'
 
 gem 'carrierwave'
 
