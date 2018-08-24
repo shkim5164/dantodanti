@@ -68,28 +68,28 @@
     
           <tr>
             <th scope="row">나이</th>
-            <td colspan="2"><input class="string required" autofocus="autofocus" required="required" aria-required="true" type="text" name="user[userage]" id="user_userage" value="<%= current_user.userage %>"></td>
+            <td colspan="1"><input class="string required" autofocus="autofocus" required="required" aria-required="true" type="text" name="user[userage]" id="user_userage" value="<%= current_user.userage %>"></td>
           </tr>
            <tr>
             <th scope="row">이름</th>
-            <td colspan="2"><input class="string required" autofocus="autofocus" required="required" aria-required="true" type="text" name="user[username]" id="user_username" value="<%= current_user. %>"></td>
+            <td colspan="1"><input class="string required" autofocus="autofocus" required="required" aria-required="true" type="text" name="user[username]" id="user_username" value="<%= current_user.username %>"></td>
           </tr>
            <tr>
             <th scope="row">학과</th>
-            <td colspan="2"><input class="string required" autofocus="autofocus" required="required" aria-required="true" type="text" name="user[userdepartment]" id="user_userdepartment"></td>
+            <td colspan="1"><input class="string required" autofocus="autofocus" required="required" aria-required="true" type="text" name="user[userdepartment]" id="user_userdepartment" value="<%= current_user.userdepartment %>"></td>
           </tr>
            <tr>
             <th scope="row">학번</th>
-            <td colspan="2"><input class="string required" autofocus="autofocus" required="required" aria-required="true" type="text" name="user[usernumber]" id="user_usernumber"></td>
+            <td colspan="1"><input class="string required" autofocus="autofocus" required="required" aria-required="true" type="text" name="user[usernumber]" id="user_usernumber" value="<%= current_user.usernumber%>"></td>
           </tr>
         </tbody>
       </table>
       </div>
       
       
-      <div class="form-actions">
-         <input type="submit" name="commit" value="수정" class="btn btn-warning">
-         <a href="/mentorrq/index"><button class="btn btn-warning">멘토신청하러가기</button></a>
+      <div class="form-actions d-flex justify-content-center">
+         <a href="/mentorrq/index"><button class="btn btn-warning mx-1">멘토신청하러가기</button></a>
+         <a href="/mentorrq/index"><button class="btn btn-warning mx-1">수정하기</button></a>
       </div>
      <% end %>
     

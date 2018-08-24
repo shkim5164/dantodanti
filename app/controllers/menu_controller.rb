@@ -27,6 +27,8 @@ class MenuController < ApplicationController
   end
   
   def mypage
+    @suup_info = Suup.all.limit(3)
+    render :layout => 'mypage'
   end
   
   def create
