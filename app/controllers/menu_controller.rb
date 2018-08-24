@@ -23,7 +23,8 @@ class MenuController < ApplicationController
   end
   
   def cards
-    @popsuup = Suup.all
+    @popsuup = Suup.all.limit(6)
+    @suups = Suup.order(":created_at desc").page(9)
   end
   
   def mypage

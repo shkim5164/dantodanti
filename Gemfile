@@ -5,6 +5,7 @@ gem 'impressionist'
 gem 'kaminari'
 gem 'devise'
 gem 'rails_db'
+gem 'jquery-countdown-rails'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
