@@ -1,6 +1,6 @@
 class MenuController < ApplicationController
   layout :admin_layout,:only => [:bmain, :design]
-  
+  before_action :authenticate_user!
   def main
     @allrecord = Suup.all
     
@@ -27,10 +27,12 @@ class MenuController < ApplicationController
   
   def cards
     @popsuup = Suup.all.limit(6)
-    @suups = Suup.order(":created_at desc").page(9)
+    @suups = Suup.order(":created_at desc").page(params[:page]).per(9)
   end
   
   def mypage
+    @suup_info = Suup.all.limit(3)
+    render :layout => 'mypage'
   end
   
 

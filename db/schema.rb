@@ -97,7 +97,6 @@ ActiveRecord::Schema.define(version: 20180824070444) do
     t.string   "title"
     t.string   "content"
     t.integer  "mentor_id"
-    t.datetime "sttime"
     t.datetime "endtime"
     t.string   "place"
     t.string   "phone"

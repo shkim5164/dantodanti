@@ -1,6 +1,11 @@
 class User < ActiveRecord::Base
   
   mount_uploader :image, ImageUploader
+  
+  # #좋아요
+  # act_as_liker
+  # validates :username
+  
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable

@@ -10,7 +10,22 @@
     </style>
     
 </head>
-
+<div style=
+            "height: 11rem;
+            background-image: 
+                       url(http://www.hrreview.co.uk/wp-content/uploads/mentoring-768x307.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            background-color: black;"
+            >
+            <div style="background-color:black; opacity:0.5; text-align:center; height: 100%; vertical-align: middle;">
+              <div style="padding: 50px 0px;">
+                 <h1 style="color: white">멘토링게시판</h1> 
+                 <p style="color: white">멘토링 게시판은 수업을 신청하는 게시판 입니다.</p>
+               </div>
+            </div>
+          </div>
 <a href="/menu/mentoring">목록으로 돌아가기</a>
 
 <br><br><br>
@@ -27,11 +42,8 @@
     </li>
     <hr>
     <li style="font-size:2rem;">
-        <strong><i class="fa fa-map-marker" style="margin-right:18px"></i></strong>  <%= @suup.place %>
-    </li><br>
-    <li style="font-size:2rem;">
         <i class="fa fa-clock-o" style="margin-right:10px"></i>
-        <span>신청 마감까지</span>
+        <span>마감까지</span>
         <span id="clock"></span>
         <span>남았습니다.</span>
         <script>
@@ -42,14 +54,18 @@
         </script>
     </li><br>
     <li style="font-size:2rem;">
-        <strong><i class="fa fa-user" style="margin-right:16px"></i></strong> <%= @suup.limitman %>명
+        <strong><i class="fa fa-user" style="margin-right:16px"></i></strong> 제한인원 <%= @suup.limitman %>명
     </li><br>
     <li style="font-size:2rem;">
-        <strong><i class="fa fa-phone" style="margin-right:10px"></i></strong> <%= @suup.phone %>
+        <strong><i class="fa fa-phone" style="margin-right:10px"></i></strong><%= @suup.phone %>
+    </li><br>
+     <li style="font-size:2rem;">
+        <strong><i class="fa fa-map-marker" style="margin-right:18px"></i></strong> <%= @suup.place %>
     </li>
     <hr>
     <li style="font-size:2rem;">
         수업내용
+        <hr>
         <br>
         <%= @suup.content %>
     </li>
