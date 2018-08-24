@@ -11,7 +11,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 </head>
 
-<body>
+
+
+<body class="bg-light">
   <!-- 상단 네브바 -->
   <nav class="navbar navbar-expand-lg navbar-light py-lg-2 bg-light" id="mainNav">
       <!--<a class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none" href="/menu/main">단토단티</a>-->
@@ -40,7 +42,7 @@
             <a class="nav-link navbar-brand" href="/menu/execution"><img src="/svg/002-devil.svg" align="middle" height="20px" width="auto">공개처형</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link navbar-brand" href="/users/edit"><img src="/svg/006-emotion.svg" align="middle" height="20px" width="auto">내정보</a>
+            <a class="nav-link navbar-brand" href="/menu/mypage"><img src="/svg/006-emotion.svg" align="middle" height="20px" width="auto">내정보</a>
           </li>
         </ul>
         </div>
@@ -59,56 +61,75 @@
   </nav>
   <!--네브바끝-->
     
-  <div class="container">
+    
+  <div class="container-fluid">
     <!--최상단-->
-    <div class="row bg-dark">
-      <div class="col-4" style="text-align:center;">
+    <div class="row bg-dark px-5" style="color:white; text-align:center; font-size:1.3rem;">
+      <div class="col-3">
         <!--프로필사진-->
-        <img class="img mt-3" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0_2nqm0H20gpO-Pf9BsBwuAYt3McWcb-6rFs37i244h71Lyrnkg" width="200px" height="200px" style="border-radius: 300px;">
+        <img class="img my-4" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0_2nqm0H20gpO-Pf9BsBwuAYt3McWcb-6rFs37i244h71Lyrnkg" width="200px" height="200px" style="border-radius: 300px;">
       </div>
-      <div class="col">
+      <div class="col p-4 m-auto">
         <!--하트아이콘-->
-        <img src="/svg/heart.svg" align="middle" height="20px" width="auto">
+        <img src="/svg/heart.svg" align="middle" height="50px" width="auto"> 
+        <br> 
+          <strong>50</strong>
+      </div>
+      <div class="col p-4 m-auto" >
+        <b>멘티 50명</b>
+      </div>
+      <div class="col p-4 m-auto">
+        <strong>인기도 120</strong>
+      </div>
+      <div class="col-3 p-4 m-auto">
+        이동규<br>
+        국제경영학과<br>
+        32132552<br>
+        
+        <a class="btn btn-primary" href="/users/edit" role="button">수정하기</a>
       </div>
     </div>
     
-<<<<<<< HEAD
     <!--메인컨텐츠(클래스,질답목록)-->
-    <div class="row">
-=======
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <div class="user-container">
-    <div class="user-profile">
-      <!--# user에게 이미지가 없으면 기본이미지를 띄워주고 이미지를 입력받음. -->
-      <% if current_user.image.url.nil? %>
-      <img src="/img/cute.jpg" class="user-profile-image" alt="profile">
-      <p>프로필이 없습니다. 프로필을 등록해주세요</p>
-      <%= form_tag '/menu/create', method: :post, class: 'user-profile-form',multipart: true do %>
-        <input type="file" name="image" value="imgae">
-        <input type="hidden" name="user" value="<%=current_user.id%>">
-        <input type="submit">
-      <% end %>
-      <% else %>
-      <!--#유저에게 등록한 이미지가 있을경우 유저의 이미지를 보여줌-->
-      <img src="<%=current_user.image.url%>" class="user-profile-image" alt="profile">
-      <%= form_tag '/menu/create', method: :post, class: 'user-profile-form',multipart: true do %>
-        <input type="file" name="image" value="imgae">
-        <input type="hidden" name="user" value="<%=current_user.id%>">
-        <input type="submit">
-      <% end %>
->>>>>>> 67e4be8e342b3428eb10484f8b14f1a8a2bfbf66
+    <div class="row mx-5 my-3">
+      <!--운영중인 멘토링 클래스-->
+      <h5>현재 운영중인 멘토링</h5>
+      <table class="table table-sm table-bordered table-dark" style="text-align:center;">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">수업명</th>
+            <th scope="col">수업내용</th>
+            <th scope="col">학생수 (0/20)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td><%=@suup_info.first.title%></td>
+            <td><%=@suup_info.first.content%></td>
+            <td>학생수</td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td><%=@suup_info.second.title%></td>
+            <td><%=@suup_info.second.content%></td>
+            <td>학생수</td>
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td><%=@suup_info.last.title%></td>
+            <td><%=@suup_info.last.content%></td>
+            <td>학생수</td>
+          </tr>
+        </tbody>
+      </table>
+      
+      
+      
       
     </div>
   </div>
+    
 </body>
 </html>

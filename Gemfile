@@ -8,6 +8,8 @@ gem 'rails_db'
 gem 'jquery-countdown-rails'
 gem 'tinymce-rails'
 
+gem 'like_system'
+
 gem 'carrierwave'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
