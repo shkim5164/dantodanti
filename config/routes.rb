@@ -54,4 +54,8 @@ Rails.application.routes.draw do
   delete 'mentoring/:id' => 'mentoring#delete'
   
   get 'mentoring/search'
+  
+  post 'menu/create'=> 'menu#create'
+  
+  get 'public/rank/:id'=> 'public#rank'
 end
