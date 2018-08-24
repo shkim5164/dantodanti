@@ -1,4 +1,5 @@
 <head>
+    <!--<script src="/bower_components/jquery.countdown/dist/jquery.countdown.js"></script>-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     
@@ -7,6 +8,7 @@
             display: inline-block;
         }
     </style>
+    
 </head>
 
 <a href="/menu/mentoring">목록으로 돌아가기</a>
@@ -28,7 +30,16 @@
         <strong><i class="fa fa-map-marker" style="margin-right:18px"></i></strong>  <%= @suup.place %>
     </li><br>
     <li style="font-size:2rem;">
-        <strong><i class="fa fa-clock-o" style="margin-right:10px"></i></strong> <%= @suup.sttime %> <%=@suup.endtime %>
+        <i class="fa fa-clock-o" style="margin-right:10px"></i>
+        <span>신청 마감까지</span>
+        <span id="clock"></span>
+        <span>남았습니다.</span>
+        <script>
+            $('#clock').countdown({until: <%= @suup.endtime.to_i - Time.now.to_i %>,
+               expiryText: '<div class="over">마감되었습니다.</div>'
+              });
+
+        </script>
     </li><br>
     <li style="font-size:2rem;">
         <strong><i class="fa fa-user" style="margin-right:16px"></i></strong> <%= @suup.limitman %>명
