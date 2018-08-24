@@ -5,6 +5,10 @@ gem 'impressionist'
 gem 'kaminari'
 gem 'devise'
 gem 'rails_db'
+gem 'jquery-countdown-rails'
+gem 'tinymce-rails'
+
+gem 'like_system'
 
 gem 'carrierwave'
 

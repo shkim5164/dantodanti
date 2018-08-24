@@ -24,7 +24,7 @@
 
 #imageWrapper {
   /*display: flex;*/
-  height: 400px;
+  /*height: 400px;*/
   margin: 3px auto 0 auto;
   overflow-x: scroll;
   overflow-y: hidden;

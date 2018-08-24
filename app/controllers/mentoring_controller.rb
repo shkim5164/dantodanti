@@ -1,4 +1,5 @@
 class MentoringController < ApplicationController
+    before_action :authenticate_user!
     def new
     end
     
@@ -17,7 +18,7 @@ class MentoringController < ApplicationController
     end
     
     def show
-        @suup=Suup.find params[:id]
+        @suup=Suup.find(params[:id])
     end
     
     def edit

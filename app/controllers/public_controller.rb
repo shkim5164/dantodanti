@@ -1,6 +1,6 @@
 class PublicController < ApplicationController
     layout :admin_layout, :only => [:execution, :show]
-    
+    before_action :authenticate_user!
     def write
         @token=form_authenticity_token
     end

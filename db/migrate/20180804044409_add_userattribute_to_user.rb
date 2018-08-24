@@ -4,5 +4,6 @@ class AddUserattributeToUser < ActiveRecord::Migration
     add_column :users, :userdepartment, :string
     add_column :users, :usernumber, :string
     add_column :users, :userage, :string
+    
   end
 end

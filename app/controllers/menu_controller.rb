@@ -1,7 +1,10 @@
 class MenuController < ApplicationController
   layout :admin_layout,:only => [:bmain, :design]
-  
+  before_action :authenticate_user!
   def main
+    @allrecord = Suup.all
+    
+    
   end
 
   def mentoring
@@ -23,10 +26,13 @@ class MenuController < ApplicationController
   end
   
   def cards
-    @popsuup = Suup.all.limit(5)
+    @popsuup = Suup.all.limit(6)
+    @suups = Suup.order(":created_at desc").page(9)
   end
   
   def mypage
+    @suup_info = Suup.all.limit(3)
+    render :layout => 'mypage'
   end
   
 
@@ -44,9 +50,6 @@ class MenuController < ApplicationController
     @user.image = params[:image]
     @user.save
     #redirect_back(fallback_location: root_path)
-
-    redirect_to '/menu/mypage'
-
 
     redirect_to '/users/edit'
 
