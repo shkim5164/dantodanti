@@ -85,6 +85,46 @@
       <a href="/mentorrq/index"><button>멘토신청하러가기</button></a>
      
     </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="user-container">
+    <div class="user-profile">
+      <!--# user에게 이미지가 없으면 기본이미지를 띄워주고 이미지를 입력받음. -->
+      <% if current_user.image.url.nil? %>
+      <img src="/img/cute.jpg" class="user-profile-image" alt="profile">
+      <p>프로필이 없습니다. 프로필을 등록해주세요</p>
+      <%= form_tag '/menu/create', method: :post, class: 'user-profile-form',multipart: true do %>
+        <input type="file" name="image" value="imgae">
+        <input type="hidden" name="user" value="<%=current_user.id%>">
+        <input type="submit">
+      <% end %>
+      <% else %>
+      <!--#유저에게 등록한 이미지가 있을경우 유저의 이미지를 보여줌-->
+      <img src="<%=current_user.image.url%>" class="user-profile-image" alt="profile">
+      <%= form_tag '/menu/create', method: :post, class: 'user-profile-form',multipart: true do %>
+        <input type="file" name="image" value="imgae">
+        <input type="hidden" name="user" value="<%=current_user.id%>">
+        <input type="submit">
+      <% end %>
+      
+      <% end %>
+    </div>
+    </div>
+    
+    
+    
+    
+    
  </body>        
         
 </html>

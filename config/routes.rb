@@ -19,7 +19,6 @@ Rails.application.routes.draw do
   get 'menu/mentoring' => 'menu#cards'
   get 'menu/execution' => 'public#index'
   get 'menu/bmain'
-  get 'menu/mypage' => 'menu#mypage'
   
   root 'menu#main'
 
@@ -54,4 +53,11 @@ Rails.application.routes.draw do
   delete 'mentoring/:id' => 'mentoring#delete'
   
   get 'mentoring/search'
+  
+  get 'menu/sugang/:suup_id/:user_id' => 'menu#sugang'
+
+  post 'menu/create'=> 'menu#create'
+  
+  get 'public/rank/:id'=> 'public#rank'
+
 end

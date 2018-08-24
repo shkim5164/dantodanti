@@ -37,6 +37,19 @@ class PublicController < ApplicationController
       @hit_post.impressions.create(ip_address: request.remote_ip, user_id: current_user.id) # 오류
    end
 
-
+    def rank
+        @show = params[:id]
+        @mentor = Mentor.find(@show)
+        @mentor_id = @mentor.user_id
+        @mentor_email = @mentor.user.email
+        @mentor_name = @mentor.user.username
+        @mentor_age = @mentor.user.userage
+        @mentor_department = @mentor.user.userdepartment
+        @mentor_number = @mentor.user.usernumber
+        
+        
+        
+        
+    end
     
 end
