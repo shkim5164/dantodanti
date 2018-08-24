@@ -61,7 +61,7 @@
         <tr>
           <th scope="row"><%= d.id %></th>
           <td><a href="/mentorrq/show/<%= d.id %>"><%= d.content %></td></a>
-          <td><%= d.name %></td>
+          <td><%= d.user.email %></td>
         </tr>
       <% end %>    
     
