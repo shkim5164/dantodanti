@@ -9,20 +9,35 @@
     </style>
 </head>
 
-
-<h1>제목 : <%= @suup.title %></h1>
-<hr>
-<div class="info">
-    <i class="fa fa-map-marker" style="font-size:5rem; margin-right:69px;"></i>
-    <i class="fa fa-clock-o" style="font-size:5rem; margin-right:69px;"></i>
-    <i class="fa fa-users" style="font-size:4.5rem; margin-right:69px;"></i>
-    <i class="fa fa-phone" style="font-size:5rem; margin-right:69px;"></i>
-    <ul type="none">
-    <li>
-    <h3 style="margin-right:69px">강남</h3>
+<br><br><br>
+<div class="profile col-4" style="display:inline-block">
+<img class="img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0_2nqm0H20gpO-Pf9BsBwuAYt3McWcb-6rFs37i244h71Lyrnkg" width="200px" height="200px" style="border-radius:300px">
+<h3>멍멍이</h3>
+<a class="btn btn-primary">자세히 보기</a>
+</div>
+<div class="info col-8" style="float:right;">
+    <ul>
+    <li style="font-size:2rem;">
+        <%= @suup.title %>
     </li>
-    <li>
-        2시간
+    <hr>
+    <li style="font-size:2rem;">
+        <i class="fa fa-map-marker" style="margin-right:18px"></i>장소 : <%= @suup.place %>
+    </li><br>
+    <li style="font-size:2rem;">
+        <i class="fa fa-clock-o" style="margin-right:10px"></i>시간 : <%= @suup.sttime %> <%=@suup.endtime %>
+    </li><br>
+    <li style="font-size:2rem;">
+        <i class="fa fa-user" style="margin-right:16px"></i>제한인원 : <%= @suup.limitman %>
+    </li><br>
+    <li style="font-size:2rem;">
+        <i class="fa fa-phone" style="margin-right:10px"></i>연락처 : <%= @suup.phone %>
+    </li>
+    <hr>
+    <li style="font-size:2rem;">
+        수업내용
+        <br>
+        <%= @suup.content %>
     </li>
     </ul>
 </div>
