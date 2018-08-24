@@ -96,34 +96,28 @@
     <table class="table my-2">
       <thead class="thead-light">
             <tr>
-               <th class="px-3" colspan="4" style="text-align:right;">최신글</th>
+               <th class="px-3" colspan="5" style="text-align:right;">최신글</th>
             </tr>
           </thead>
       <tbody>
         <tr>
           <td>NO</td>
+          <td>제목</td>
           <td>내용</td>
-          <td>게시판</td>
-          <td>글쓴이</td>
+          <td>장소</td>
+          <td>제한인원</td>
         </tr>
+      <% @allrecord.each do |d| %>
         <tr>
-          <th scope="row">1</th>
-          <td>기초경제학 너무 어렵습니다ㅠㅠ도와주세요</td>
-          <td>[멘토링]기초경제학</td>
-          <td>#화난올빼미</td>
+          <td><%= d.id %></td>
+          <td><%= d.title %></td>
+          <td><%= d.content %></td>
+          <td><%= d.place %></td>
+          <td><%= d.limitman %></td>
         </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td>부트스트랩이 뭔가요..?</td>
-          <td>[멘토링]웹 프로그래밍</td>
-          <td>#성난 사자</td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td>수업시간에 궁금했던거..</td>
-          <td>기초통계학1</td>
-          <td>#이상한 나뭇꾼</td>
-        </tr>
+      <% end %>  
+        
+  
       </tbody>
     </table>
 </body>

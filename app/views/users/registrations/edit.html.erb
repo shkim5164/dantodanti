@@ -54,9 +54,9 @@
           <% else %>
           <img src="<%=current_user.image.url%>" class="user-profile-image" alt="profile">
           <%= form_tag '/menu/create', method: :post, class: 'user-profile-form',multipart: true do %>
-            <input type="file" name="image" value="imgae">
+            <input class="btn btn-outline-light " type="file" name="image" value="imgae">
             <input type="hidden" name="user" value="<%=current_user.id%>">
-            <input type="submit">
+            <input class="btn btn-outline-light" type="submit">
           <% end %>
           <% end %>
         </div>
