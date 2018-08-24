@@ -13,5 +13,5 @@ class User < ActiveRecord::Base
   has_many :lists
   belongs_to :mentor
   
-  
+
 end
