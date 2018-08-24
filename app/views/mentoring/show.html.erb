@@ -1,4 +1,5 @@
 <head>
+    <!--<script src="/bower_components/jquery.countdown/dist/jquery.countdown.js"></script>-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     
@@ -7,13 +8,17 @@
             display: inline-block;
         }
     </style>
+    
 </head>
+
+<a href="/menu/mentoring">목록으로 돌아가기</a>
 
 <br><br><br>
 <div class="profile col-4" style="display:inline-block">
 <img class="img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0_2nqm0H20gpO-Pf9BsBwuAYt3McWcb-6rFs37i244h71Lyrnkg" width="200px" height="200px" style="border-radius:300px">
 <h3>멍멍이</h3>
-<a class="btn btn-primary">자세히 보기</a>
+<a href="/public/rank/<%= @mentor_id %>" class="btn btn-primary">멘토 정보</a><br><br>
+<a href="/menu/sugang/<%= @suup.id %>/<%= current_user.id %>" class="btn btn-primary">수업 신청하기</a>
 </div>
 <div class="info col-8" style="float:right;">
     <ul>
@@ -22,16 +27,25 @@
     </li>
     <hr>
     <li style="font-size:2rem;">
-        <i class="fa fa-map-marker" style="margin-right:18px"></i>장소 : <%= @suup.place %>
+        <strong><i class="fa fa-map-marker" style="margin-right:18px"></i></strong>  <%= @suup.place %>
     </li><br>
     <li style="font-size:2rem;">
-        <i class="fa fa-clock-o" style="margin-right:10px"></i>시간 : <%= @suup.sttime %> <%=@suup.endtime %>
+        <i class="fa fa-clock-o" style="margin-right:10px"></i>
+        <span>신청 마감까지</span>
+        <span id="clock"></span>
+        <span>남았습니다.</span>
+        <script>
+            $('#clock').countdown({until: <%= @suup.endtime.to_i - Time.now.to_i %>,
+               expiryText: '<div class="over">마감되었습니다.</div>'
+              });
+
+        </script>
     </li><br>
     <li style="font-size:2rem;">
-        <i class="fa fa-user" style="margin-right:16px"></i>제한인원 : <%= @suup.limitman %>
+        <strong><i class="fa fa-user" style="margin-right:16px"></i></strong> <%= @suup.limitman %>명
     </li><br>
     <li style="font-size:2rem;">
-        <i class="fa fa-phone" style="margin-right:10px"></i>연락처 : <%= @suup.phone %>
+        <strong><i class="fa fa-phone" style="margin-right:10px"></i></strong> <%= @suup.phone %>
     </li>
     <hr>
     <li style="font-size:2rem;">

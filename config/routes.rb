@@ -55,7 +55,10 @@ Rails.application.routes.draw do
   
   get 'mentoring/search'
   
+  get 'menu/sugang/:suup_id/:user_id' => 'menu#sugang'
+
   post 'menu/create'=> 'menu#create'
   
   get 'public/rank/:id'=> 'public#rank'
+
 end
