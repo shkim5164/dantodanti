@@ -6,6 +6,7 @@ gem 'kaminari'
 gem 'devise'
 gem 'rails_db'
 
+gem 'carrierwave'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5'

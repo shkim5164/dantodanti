@@ -35,10 +35,10 @@ class MentorrqController < ApplicationController
     @newrecord.content = params[:content]  #content 항목에는 파라미터로 받아온 content를 저장
     
     @newrecord.save # 안해주면 날라감
-    
-    
     redirect_to "/mentorrq/show/#{@newrecord.id}" # 저장하면 show로 바로 넘어감
-
+    
+    
+    
   end
   
   
