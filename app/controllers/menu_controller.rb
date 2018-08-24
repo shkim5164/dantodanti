@@ -23,7 +23,7 @@ class MenuController < ApplicationController
   end
   
   def cards
-    @popsuup = Suup.all.limit(5)
+    @popsuup = Suup.all
   end
   
   def mypage
