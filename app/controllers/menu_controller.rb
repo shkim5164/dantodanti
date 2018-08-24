@@ -27,7 +27,7 @@ class MenuController < ApplicationController
   
   def cards
     @popsuup = Suup.all.limit(6)
-    @suups = Suup.order(":created_at desc").page(9)
+    @suups = Suup.order(":created_at desc").page(params[:page]).per(9)
   end
   
   def mypage

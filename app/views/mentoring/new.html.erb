@@ -1,5 +1,5 @@
 <head>
-    <%= tinymce_assets %>
+    
 </head>
 
 <div class="container">
@@ -49,6 +49,7 @@
           <div class="form-group">
             <label for="exampleFormControlTextarea1">내용</label>
             <%= text_area_tag :content, "", :class => "tinymce", :rows => 40, :cols => 120 %>
+            <%= tinymce %>
           </div>
           </div>
           <input type="submit" value="제출!"></input>
