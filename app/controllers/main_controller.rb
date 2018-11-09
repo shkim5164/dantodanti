@@ -1,14 +1,10 @@
-class MenuController < ApplicationController
+class MainController < ApplicationController
   layout :admin_layout,:only => [:bmain, :design]
   before_action :authenticate_user!
   def main
     @allrecord = Suup.all
-    
-    
   end
 
-  def mentoring
-  end
 
   def ranking
   end
@@ -25,6 +21,7 @@ class MenuController < ApplicationController
     render :layout => 'design'
   end
   
+  #'멘토링' 메인페이지
   def cards
     @popsuup = Suup.all.limit(6)
     @suups = Suup.order(":created_at desc").page(params[:page]).per(9)
@@ -42,7 +39,7 @@ class MenuController < ApplicationController
     @sinchung.suup_id=params[:suup_id]
     @sinchung.save
     
-    redirect_to '/menu/mentoring'
+    redirect_to '/main/mentoring'
     
   end
   def create

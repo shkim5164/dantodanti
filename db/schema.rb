@@ -22,9 +22,8 @@ ActiveRecord::Schema.define(version: 20180824070444) do
   end
 
   create_table "blacklists", force: :cascade do |t|
-    t.string   "name"
-    t.string   "major"
-    t.string   "number"
+    t.string   "title"
+    t.text     "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -74,8 +73,8 @@ ActiveRecord::Schema.define(version: 20180824070444) do
   add_index "likes", ["user_id"], name: "index_likes_on_user_id"
 
   create_table "lists", force: :cascade do |t|
+    t.string   "name"
     t.text     "content"
-    t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

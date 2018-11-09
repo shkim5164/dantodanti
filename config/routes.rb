@@ -2,16 +2,21 @@ Rails.application.routes.draw do
 
   #메인메뉴
   root 'main#main'
-  #다 안써도 되는건가?
+
   get 'main/main' => 'main#main'
 
-  get 'main/mentoring'
+  get 'main/cards' #얘가 메인네브에서 '멘토링' 눌렀을 때 실행되는거
 
   get 'main/ranking'
 
   get 'main/execution'
   
   get 'main/bmain'
+
+  get 'main/mypage'
+  
+  get 'main/design'
+  
   
 
   devise_for :users, :controllers => { registrations: 'users/registrations' }
@@ -44,12 +49,8 @@ Rails.application.routes.draw do
   post '/comments' => 'comment#create'
   delete '/comments/:id' => 'comment#destory'
 
-  get 'menu/mypage'
-  
-  get 'menu/cards'
-  
-  get 'menu/design'
-  
+
+
   get 'mentorrq/levelup/:id' => 'mentorrq#levelup'
 
  
@@ -62,9 +63,9 @@ Rails.application.routes.draw do
   
   get 'mentoring/search'
   
-  get 'menu/sugang/:suup_id/:user_id' => 'menu#sugang'
+  get 'main/sugang/:suup_id/:user_id' => 'main#sugang'
 
-  post 'menu/create'=> 'menu#create'
+  post 'main/create'=> 'main#create'
   
   get 'public/rank/:id'=> 'public#rank'
 
