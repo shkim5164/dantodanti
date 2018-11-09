@@ -1,6 +1,6 @@
 #mainNav{
     background-color: white;
-    border-bottom-style:double!important;
+    border-bottom:1px solid black!important;
     z-index:2;
     position:fixed;
     width:100%;
@@ -27,7 +27,7 @@
     background-color:white;
     overflow-x:hidden;
     padding-top:120px;
-    border-left-style:double!important;
+    border-left:1px solid black!important;
     display:inline-block;
     float:right;
     
@@ -38,7 +38,7 @@ div.sidnav a{
     display:block;
     font-size: 15px;
     color: black;
-    text-decoration:none;
+    text-decoration:dotted;
     padding: 6px 1px 6px 1px;
 }
 
