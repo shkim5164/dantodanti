@@ -1,96 +1,66 @@
-<!DOCTYPE html>
-<html lang="en">
+  <div class="row d-flex justify-content-center">
+    
+  <% @allrecord.limit(3).each do |d| %>
+        <div class="col-lg-3 col-md-4">
+          <div class="card">
+            <img class="card-img-top" src="http://placehold.it/500x325" alt>
+            <div class="card-body">
+              <h4 class="card-title"><%= d.name %></h4>
+              <p class="card-text">
+                <%= d.major %><%= d.number %>
+              </p>
+            </div>
+            <div class="card-footer">
+              <a href="/public/show/<%= d.id %>" class="btn btn-primary">find out more</a>
+            </div>
+          </div>
+        </div>
+  <% end %>
+  </div>
+  
+  <div class="mt-4">
+    <table class="table" style="width:50%; margin:auto; text-align:center;">
+      <thead class="thead-white">
+        <tr>
+          <th scope="col">랭킹</th>
+          <th scope="col">이름</th>
+          <th scope="col">학과</th>
+          <th scope="col">학번</th>
+        </tr>
+      </thead>
+      <tbody>
+         <% @allrecord.each do |d| %>
+            <tr>
+              <th scope="row"><%= d.id %></th>
+              <td><a href="/public/show/<%= d.id %>"><%= d.name %></a></td>
+              <td><a href="/public/show/<%= d.id %>"><%= d.major %></a></td>
+              <td><a href="/public/show/<%= d.id %>"><%= d.number %></a></td>
+            </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  
+  <div class="container mt-4">
+    <div class="row d-flex justify-content-center">
+      <div class="col-4 d-flex justify-content-center"><a href="/public/write">신고하기</a></div>
+    </div>
+  </div>
+  
 
-  <head>
-    <title>Business Casual - Start Bootstrap Theme</title>
-  </head>
+
+<!--#원피스원티드(일단주석)-->
+<!--<div class="row col-lg-10" style="margin:auto; padding-left:15px; padding-right:15px;">-->
+<!--  <% @allrecord.each do |m| %>-->
+<!--    <div class="col-lg-4 col-sm-6 portfolio-item">-->
+<!--        <div class="card h-100">-->
+<!--          <a href="/public/show/<%= m.id %>"><img class="card-img-top" src="https://img00.deviantart.net/1858/i/2009/102/5/2/one_piece_wanted_poster_psd_by_akuma_no_mi_bu.png" alt=""></a>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--  <% end %>-->
+<!--</div>-->
 
 
 
-  <body>
-
-    <h1 class="site-heading text-center text-white d-none d-lg-block">
-      <span class="site-heading-upper text-primary mb-3">A Free Bootstrap 4 Business Theme</span>
-      <span class="site-heading-lower">Business casusu</span>
-    </h1>
 
     
-
-    <section class="page-section">
-      <div class="container">
-        <div class="product-item">
-          <div class="product-item-title d-flex">
-            <div class="bg-faded p-5 d-flex ml-auto rounded">
-              <h2 class="section-heading mb-0">
-                <span class="section-heading-upper">Blended to Perfection</span>
-                <span class="section-heading-lower">Coffees &amp; Teas</span>
-              </h2>
-            </div>
-          </div>
-          <img class="product-item-img mx-auto d-flex rounded img-fluid mb-3 mb-lg-0" src="img/products-01.jpg" alt="">
-          <div class="product-item-description d-flex mr-auto">
-            <div class="bg-faded p-5 rounded">
-              <p class="mb-0">We take pride in our work, and it shows. Every time you order a beverage from us, we guarantee that it will be an experience worth having. Whether it's our world famous Venezuelan Cappuccino, a refreshing iced herbal tea, or something as simple as a cup of speciality sourced black coffee, you will be coming back for more.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="page-section">
-      <div class="container">
-        <div class="product-item">
-          <div class="product-item-title d-flex">
-            <div class="bg-faded p-5 d-flex mr-auto rounded">
-              <h2 class="section-heading mb-0">
-                <span class="section-heading-upper">Delicious Treats, Good Eats</span>
-                <span class="section-heading-lower">Bakery &amp; Kitchen</span>
-              </h2>
-            </div>
-          </div>
-          <img class="product-item-img mx-auto d-flex rounded img-fluid mb-3 mb-lg-0" src="img/products-02.jpg" alt="">
-          <div class="product-item-description d-flex ml-auto">
-            <div class="bg-faded p-5 rounded">
-              <p class="mb-0">Our seasonal menu features delicious snacks, baked goods, and even full meals perfect for breakfast or lunchtime. We source our ingredients from local, oragnic farms whenever possible, alongside premium vendors for specialty goods.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="page-section">
-      <div class="container">
-        <div class="product-item">
-          <div class="product-item-title d-flex">
-            <div class="bg-faded p-5 d-flex ml-auto rounded">
-              <h2 class="section-heading mb-0">
-                <span class="section-heading-upper">From Around the World</span>
-                <span class="section-heading-lower">Bulk Speciality Blends</span>
-              </h2>
-            </div>
-          </div>
-          <img class="product-item-img mx-auto d-flex rounded img-fluid mb-3 mb-lg-0" src="img/products-03.jpg" alt="">
-          <div class="product-item-description d-flex mr-auto">
-            <div class="bg-faded p-5 rounded">
-              <p class="mb-0">Travelling the world for the very best quality coffee is something take pride in. When you visit us, you'll always find new blends from around the world, mainly from regions in Central and South America. We sell our blends in smaller to large bulk quantities. Please visit us in person for more details.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <footer class="footer text-faded text-center py-5">
-      <div class="container">
-        <p class="m-0 small">Copyright &copy; Your Website 2018</p>
-      </div>
-    </footer>
-
-    <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-  </body>
-
-</html>
-
-<h

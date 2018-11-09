@@ -2,44 +2,86 @@
 <html lang="en">
 <head>
   <style>
-    
-  .rmf { 
+  .wpahr { 
     width :300px;
   }  
   
   .table {
-    width: 50%;
-    margin :50px 150px 0px 150px;
+    width: 100%;
+    text-align: center;
   }
-    
+  
+  .box {
+    padding:50px 100px;
+  }
+  
+  .wkrtjdwk{
+    width: 200px;
+  }
+  
+  .qjsgh {
+    width: 100px;
+  }
+  
+  a {
+     text-align: right;
+  }
+  
+  thead {
+    background-color:black;
+    color: white;
+  }
+  
+  tr,th,td{
+    border:1px solid white;
+
+  }
+  
+  .pagination {
+    margin-left:250px;
+  }
   </style>
   
 </head>
 <body>
-<div>
-<table class="table">
+<div class="box">
+ 
+<table class="table table-striped">
+   <h1>멘토신청게시판</h1>
   <thead>
     <tr>
-      <th scope="col">번호</th>
-      <th scope="col" class="rmf">글</th>
-      <th scope="col">작성자</th>
+      <th scope="col" class="qjsgh">번호</th>
+      <th scope="col" class="wpahr">제목</th>
+      <th scope="col" class="wkrtjdwk">작성자</th>
+      <th scope="col">등업</th>
+
     </tr>
   </thead>
   <tbody>
   
-      <% @allrecord.each do |d| %>
+      <% @posts.each do |d| %>
         <tr>
           <th scope="row"><%= d.id %></th>
           <td><a href="/mentorrq/show/<%= d.id %>"><%= d.content %></td></a>
-          <td><%= d.name %></td>
+          <td><%= d.user.email %></td>
+          <td>
+            <% if Mentor.where(user_id: d.user_id).empty? %>
+            <a href="/mentorrq/levelup/<%= d.user_id %>">등업</a>
+            <% else %>
+            <span>이미 등업</span>
+            <% end %>
+          </td>
         </tr>
       <% end %>    
+           
     
   </tbody>
+
 </table>
-</div>
-<br>
-<a href="/mentorrq/write"><button>멘토신청하러가기</button></a>
+
+<p align="right"><a href="/mentorrq/write"><button class="btn btn-outline-dark">멘토신청하러가기</button></a></p>
+
+<%= paginate @posts %>
 
 <script src="js/jquery-3.1.js"></script>
 <script src="js/bootstrap.js"></script>

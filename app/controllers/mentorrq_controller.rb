@@ -1,6 +1,11 @@
 class MentorrqController < ApplicationController
+  before_action :authenticate_user!
   def index
     @allrecord = List.all #모델에 있는 모든 데이터 불러오기
+    @d = Mentor.first
+    @posts = List.order(:id).page(params[:page]).per(10)
+    
+    
   end
   
   def write
@@ -27,12 +32,14 @@ class MentorrqController < ApplicationController
   
   def create
     @newrecord = List.new # 대문자로 적어야 모델이라고 인식
-    @newrecord.name = params[:name] #name(앞) 항목에는 파라미터로 받아온 name 을 저장하고
+    @newrecord.user_id = current_user.id #name(앞) 항목에는 파라미터로 받아온 name 을 저장하고
     @newrecord.content = params[:content]  #content 항목에는 파라미터로 받아온 content를 저장
-    @newrecord.save # 안해주면 날라감
     
+    @newrecord.save # 안해주면 날라감
     redirect_to "/mentorrq/show/#{@newrecord.id}" # 저장하면 show로 바로 넘어감
-
+    
+    
+    
   end
   
   
@@ -40,7 +47,9 @@ class MentorrqController < ApplicationController
    @show1 = params[:id]
    
    @findone = List.find(@show1)
-   @s_name = @findone.name
+   
+   @s_name = @findone.user_id
+   @email = User.find(user_id)
    @s_content = @findone.content
    
    @findtwo = Answer.where(question_id: @show1)
@@ -54,6 +63,16 @@ class MentorrqController < ApplicationController
     redirect_to "/mentorrq/index"
   end
   
+  def levelup
+    @numb = params[:id]
+    mentor = Mentor.new
+    mentor.user_id = @numb
+    mentor.save
+    
+    
+    redirect_to "/mentorrq/index"
+
+  end
   
     
 end
