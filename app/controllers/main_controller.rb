@@ -10,6 +10,7 @@ class MainController < ApplicationController
   end
 
   def execution
+    @allrecord = Blacklist.all
     render :layout => 'execution'
   end
   

@@ -4,7 +4,7 @@ class CreateBlacklists < ActiveRecord::Migration
       
       t.string :name
       t.string :major
-      t.string :number
+      t.string :number #도대체 어떤 number?;;
 
       t.timestamps null: false
     end
