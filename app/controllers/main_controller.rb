@@ -1,29 +1,25 @@
 class MainController < ApplicationController
   layout :admin_layout,:only => [:bmain, :design]
   before_action :authenticate_user!
+
+  def bmain
+    render :layout => 'bmain'
+  end
+
   def main
-    @allrecord = Suup.all
+    @allrecord = Suup.all.limit(5)
   end
-
-
-  def ranking
-  end
-
+  
   def execution
     @allrecord = Blacklist.all
     render :layout => 'execution'
-  end
-  
-  def bmain
-    render :layout => 'bmain'
   end
   
   def design
     render :layout => 'design'
   end
   
-  #'멘토링' 메인페이지
-  def cards
+  def cards #이게 멘토링
     @popsuup = Suup.all.limit(6)
     @suups = Suup.order(":created_at desc").page(params[:page]).per(9)
   end
@@ -33,7 +29,7 @@ class MainController < ApplicationController
     render :layout => 'mypage'
   end
   
-
+  
   def sugang
     @sinchung=Sinchung.new
     @sinchung.user_id=params[:user_id]
@@ -47,9 +43,13 @@ class MainController < ApplicationController
     @user = User.find(params[:user])
     @user.image = params[:image]
     @user.save
-    #redirect_back(fallback_location: root_path)
-
+    # redirect_back(fallback_location: root_path)
+    
+    
+  def ranking
+  end
+    
     redirect_to '/users/edit'
-
+    
   end
 end

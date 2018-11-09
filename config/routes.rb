@@ -1,21 +1,21 @@
 Rails.application.routes.draw do
 
   #메인메뉴
-  root 'main#main'
+  root 'main#bmain'
 
-  get 'main/main' => 'main#main'
+  get 'main' => 'main#main'
 
   get 'main/cards' #얘가 메인네브에서 '멘토링' 눌렀을 때 실행되는거
 
-  get 'main/ranking'
-
-  get 'main/execution'
+  get 'main/execution' #공개처형뷰로 이동
   
-  get 'main/bmain'
-
+  get 'main/bmain' 
+  
   get 'main/mypage'
   
   get 'main/design'
+  
+  get 'main/ranking' #얘 도대체 뭐하는앤지 모르겠음 뷰도 없고
   
   
 
