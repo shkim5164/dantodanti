@@ -1,5 +1,19 @@
 Rails.application.routes.draw do
 
+  #메인메뉴
+  root 'main#main'
+  #다 안써도 되는건가?
+  get 'main/main' => 'main#main'
+
+  get 'main/mentoring'
+
+  get 'main/ranking'
+
+  get 'main/execution'
+  
+  get 'main/bmain'
+  
+
   devise_for :users
   get 'mentorrq/index' => 'mentorrq#index'
   get 'mentorrq/write'
@@ -14,17 +28,6 @@ Rails.application.routes.draw do
   get 'mentoraw/make'
   get 'mentoraw/destroy/:a_id' => 'mentoraw#destroy'
   
-  get 'menu/main' => 'menu#main'
-
-  get 'menu/mentoring'
-
-  get 'menu/ranking'
-
-  get 'menu/execution'
-  
-  get 'menu/bmain'
-  
-  root 'menu#main'
 
   # root 'public#index'
   
@@ -39,9 +42,9 @@ Rails.application.routes.draw do
   delete '/comments/:id' => 'comment#destory'
 
 
-  get 'menu/mypage'
+  get 'main/mypage'
   
-  get 'menu/cards'
+  get 'main/cards'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

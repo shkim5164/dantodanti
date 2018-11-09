@@ -1,19 +1,15 @@
-class MenuController < ApplicationController
+class MainController < ApplicationController
   layout :admin_layout,:only=>[:bmain]
   def main
-    
   end
 
   def mentoring
-    
   end
 
   def ranking
-    
   end
 
   def execution
-    
   end
   
   def bmain
