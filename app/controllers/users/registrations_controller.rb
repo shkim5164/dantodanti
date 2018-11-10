@@ -25,6 +25,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
       :main_mypage
     end
 
+    def after_sign_up_path_for(resource)
+      :main_mypage
+    end
+
+
 
 
 

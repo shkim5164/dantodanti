@@ -58,4 +58,9 @@ unlocks -> 얘도 잘..
 정확한 방법을 공부중
 
 
-- view/registrations/edit.html.erb 나이이름학과학번 작동X -> 해결! + 수정이후 redirect가 무조건 root로 되던 문제 registrations_controller에 after_update_path_for 추가함으로서 해결!
+- view/registrations/edit.html.erb 나이이름학과학번 작동X -> 해결! + 수정이후 redirect가 무조건 root로 되던 문제 registrations_controller에 after_update_path_for 추가함으로서 해결! (+ after_sign_up도 추가)
+
+-bmain에서 로고랑 welcome(로그인시 네브바 우측끝에 나오는 환영인사)에 드래그 금지 적용하고싶은데 cascading이 문제인지..
+-bmain 디자인이 조금 허전해서 칠판같은 느낌을 조금 더 추가했으면? 아니면 아예 리뉴얼하던지(여기라도 부트스트랩템플릿 갈아엎고)
+
+-멘토링 레이아웃 도대체 왜 전체에 padding인지 margin인지 적용되어져있는거냐..............

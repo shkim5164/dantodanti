@@ -29,6 +29,13 @@
       .maincont {
         justify-content: center;
       }
+
+      #mainNav{
+        position:relative;
+      }
+      #mainContents{
+        position:absolute;
+      }
     </style>
   
   
@@ -61,10 +68,8 @@
   
     
  
-  <div class="container">
-    <div class="col p-3" id="mainContents">
+  <div class="container-fluid" id="mainContents">
       <%= yield %>
-    </div>
   </div>
   
   

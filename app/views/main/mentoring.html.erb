@@ -1,114 +1,166 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
   <head>
-    <meta charset="utf-8">
-    <title></title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="/css/poke.css">
-    <style media="screen">
-      .col-4 {
-        padding: 0;
+    <style>
+      ::scrollbar {
+        display: none;
       }
-      
-      
+      ::-webkit-scrollbar { 
+        display: none; 
+      }
+      #galleryWrapper p {
+          white-space: normal!important;
+      }
+      #galleryWrapper {
+        overflow-x: scroll;
+        position: relative;
+        white-space: nowrap;
+        background: hsla(0, 0%, 88%, 0.73);
+        height: 100%;
+        width: 100%;
+      }
+      #imageWrapper {
+        /*display: flex;*/
+        /*height: 400px;*/
+        margin: 3px auto 0 auto;
+        overflow-x: scroll;
+        overflow-y: hidden;
+        white-space: nowrap;
+        width: 90%;
+      }
+      #prevThumb, #nextThumb {
+        position: absolute;
+        top: 50%;
+      }
+
+      #prevThumb {
+        left: 0;
+      }
+
+      #nextThumb {
+        right: 0;
+      }
+
+      .scbtn {
+        background: transparent;
+        border: none;
+        color: #DF1E25;
+        cursor: pointer;
+        font-size: 1.4em;
+        height: 40px;
+        opacity: .5;
+        outline: none;
+        width: 40px;
+      }
+        .scbtn:hover {
+          opacity: 1;
+        }
+
+      .pkmn {
+        margin: 4px;
+        width: 96px;
+        display: inline-block;
+      }
+
+      #p1 {
+        background-position: 0 0;
+      }
+
+      #p2 {
+        background-position: -96px 0;
+      }
+
+      #p3 {
+
+        background-position: -182px 0;
+      }
+
+      #p4 {
+        background-position: -288px 0;
+      }
+
+      #p5 {
+        background-position: -384px 0;
+      }
+
+      #p6 {
+        background-position: -480px 0;
+      }
     </style>
     <script src="/js/scroll.js"></script>
   </head>
-  <body>
-    <div class="" style="">
-            <div style=
-            "height: 11rem;
-            background-image: 
-                       url(http://www.hrreview.co.uk/wp-content/uploads/mentoring-768x307.jpg);
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-position: center;
-            background-color: black;"
-            >
-            <div style="background-color:black; opacity:0.5; text-align:center; height: 100%; vertical-align: middle;">
-              <div style="padding: 50 0px;">
-                 <h1 style="color: white">멘토링게시판</h1> 
-                 <p style="color: white">멘토링 게시판은 수업을 신청하는 게시판 입니다.</p>
-               </div>
-            </div>
-          </div>
-        </div>
-    <div class="container">
-      <div style="display: flex;
-    justify-content: center;
-    padding-top: 10px;">
-         <form class="form-inline" action="/mentoring/search" method="get">
-          <label>수업 검색 :  </label>
-          <input name="title" type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="button-addon2">
-          <div class="input-group-append">
-            <button class="btn btn-outline-secondary" type="submit" id="button-addon2">검색</button>
-          </div>
-          </form>
-          
-      </div>  
-      <div style="display: flex;
-    justify-content: center;
-    padding-top: 10px;
-    padding-bottom: 10px;">
-            <a href="/mentoring/new">
-              <button class="btn btn-primary">새 수업 생성</button>
-            </a>
-      </div>
-        
-      <div class="row">
-       
-        
-        <h3 style="margin: 10px auto;">현재 인기있는 멘토링</h3>
-         <div id="full">
-          <div id="fullImageWrapper">
-          </div>
-        </div>
 
-    <div id="galleryWrapper">
-      <div id="imageWrapper">
-       <% @popsuup.each do |b| %>
-        <div class="card col-md-4 col-sm-1 np pkmn" style="width: 18rem;" id="p1">
-          <img class="card-img-top" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22286%22%20height%3D%22180%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20286%20180%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_16526c44f86%20text%20%7B%20fill%3Argba(255%2C255%2C255%2C.75)%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A14pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_16526c44f86%22%3E%3Crect%20width%3D%22286%22%20height%3D%22180%22%20fill%3D%22%23777%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22107.203125%22%20y%3D%2296.3%22%3E286x180%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title"><%= b.title %></h5>
-            <p class="card-text">한줄소개</p>
-            <a href="/mentoring/show/<%= b.id %>" class="btn btn-primary">자세히 보기</a>
-          </div>
+<body>
+  <div style=
+        "height: 11rem;
+        background-image: 
+                    url(http://www.hrreview.co.uk/wp-content/uploads/mentoring-768x307.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        background-color: black;"
+        >
+  <div style="background-color:black; opacity:0.7; text-align:center; height: 100%; vertical-align: middle; display:flex; align-items:center;justify-content:center;flex-direction:column">
+    <h1 style="color: white">멘토링게시판</h1> 
+    <p style="color: white">멘토링 게시판은 수업을 신청하는 게시판 입니다.</p>
+  </div>
+
+  <div class="container">
+    <div style="display:flex; justify-content:center; padding-top: 10px;">
+        <form class="form-inline" action="/mentoring/search" method="get">
+        <label>수업 검색 :  </label>
+        <input name="title" type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="button-addon2">
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary" type="submit" id="button-addon2">검색</button>
         </div>
-      <% end %>
-      </div>
-      <a id="prevThumb" href="javascript: void(0)"><button class="scbtn">&#9664;</button></a>
-      <a id="nextThumb" href="javascript: void(0)"><button class="scbtn">&#9654;</button></a>
-    </div>
-    </div>
-    
-    <div class="container" style="text-align:center; margin-top:10px;">
-      <h3>현재 최신 수업들</h3>
-      <% @suups.each do |b| %>
-      <div class="card col-md-4 col-sm-1 np pkmn" style="width: 18rem;" id="p1">
-          <img class="card-img-top" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22286%22%20height%3D%22180%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20286%20180%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_16526c44f86%20text%20%7B%20fill%3Argba(255%2C255%2C255%2C.75)%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A14pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_16526c44f86%22%3E%3Crect%20width%3D%22286%22%20height%3D%22180%22%20fill%3D%22%23777%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22107.203125%22%20y%3D%2296.3%22%3E286x180%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title"><%= b.title %></h5>
-            <p class="card-text">한줄소개</p>
-            <a href="/mentoring/show/<%= b.id %>" class="btn btn-primary">자세히 보기</a>
-          </div>
-        </div>
-      <% end %>
-      <%= paginate @suups %>
-    </div>
-     
+        </form>
         
-        
-    
-        
-        
-        
-       
-      </div>
-    </div>
-    
-  
+    </div>  
+  <div style="display: flex;
+  justify-content: center;
+  padding-top: 10px;
+  padding-bottom: 10px;">
+          <a href="/mentoring/new">
+            <button class="btn btn-primary">새 수업 생성</button>
+          </a>
+  </div>
       
-  </body>
-</html>
+    <div class="현재인기멘토링 row">
+      <h3 style="margin: 10px auto;">현재 인기있는 멘토링</h3>
+        <div id="full">
+        <div id="fullImageWrapper">
+        </div>
+      </div>
+
+  <div id="galleryWrapper">
+    <div id="imageWrapper">
+      <% @popsuup.each do |b| %>
+      <div class="card col-md-4 col-sm-1 np pkmn" style="width: 18rem;" id="p1">
+        <img class="card-img-top" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22286%22%20height%3D%22180%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20286%20180%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_16526c44f86%20text%20%7B%20fill%3Argba(255%2C255%2C255%2C.75)%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A14pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_16526c44f86%22%3E%3Crect%20width%3D%22286%22%20height%3D%22180%22%20fill%3D%22%23777%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22107.203125%22%20y%3D%2296.3%22%3E286x180%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title"><%= b.title %></h5>
+          <p class="card-text">한줄소개</p>
+          <a href="/mentoring/show/<%= b.id %>" class="btn btn-primary">자세히 보기</a>
+        </div>
+      </div>
+    <% end %>
+    </div>
+    <a id="prevThumb" href="javascript: void(0)"><button class="scbtn">&#9664;</button></a>
+    <a id="nextThumb" href="javascript: void(0)"><button class="scbtn">&#9654;</button></a>
+  </div>
+
+  </div><!--현재인기멘토링끝-->
+  
+  <div class="container" style="text-align:center; margin-top:10px;">
+    <h3>현재 최신 수업들</h3>
+    <% @suups.each do |b| %>
+    <div class="card col-md-4 col-sm-1 np pkmn" style="width: 18rem;" id="p1">
+      <img class="card-img-top" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22286%22%20height%3D%22180%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20286%20180%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_16526c44f86%20text%20%7B%20fill%3Argba(255%2C255%2C255%2C.75)%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A14pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_16526c44f86%22%3E%3Crect%20width%3D%22286%22%20height%3D%22180%22%20fill%3D%22%23777%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22107.203125%22%20y%3D%2296.3%22%3E286x180%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title"><%= b.title %></h5>
+        <p class="card-text">한줄소개</p>
+        <a href="/mentoring/show/<%= b.id %>" class="btn btn-primary">자세히 보기</a>
+      </div>
+    </div>
+    <% end %>
+    <%= paginate @suups %>
+  </div>
+</body>

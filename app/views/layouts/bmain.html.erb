@@ -28,6 +28,11 @@
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0.0/jquery.counterup.min.js"></script>
+    <style>
+    .main_counter_content p{
+      font-size:2em;
+    }
+    </style>
   </head>
 
   <body id="page-top">
@@ -35,19 +40,23 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
       <div class="container">
-        <a class="navbar-brand js-scroll-trigger" href="#page-top">로고</a>
+        <a class="disableselect disabledrag navbar-brand js-scroll-trigger" href="/">DantoDanti</a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           Menu
           <i class="fa fa-bars"></i>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav text-uppercase ml-auto">
+            <% if session[:user_id] = nil %>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#">Sign up</a>
+              <a class="nav-link js-scroll-trigger" href="/users/sign_up">Sign up</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#">Log in</a>
+              <a class="nav-link js-scroll-trigger" href="/users/sign_in">Log in</a>
             </li>
+            <% else %>
+            <li style="font-size:1.3em" class="disableselect disalbedrag"><b>반갑습니다 <a href="main/mypage"><%=current_user.username%></a>님!</b></li>
+            <%end%>
 
           </ul>
         </div>
@@ -98,28 +107,28 @@
                                 <div class="col">
                                     <div class="single_counter p-y-2 m-t-1">
                                         <!-- <i class="fa fa-heart m-b-1"></i> -->
-                                        <h2 class="statistic-counter">100</h2>
+                                        <h2 class="statistic-counter"><%=Mentor.count%></h2>
                                         <p>멘토</p>
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="single_counter p-y-2 m-t-1">
                                         <!-- <i class="fa fa-check m-b-1"></i> -->
-                                        <h2 class="statistic-counter">400</h2>
+                                        <h2 class="statistic-counter"><%=User.count - Mentor.count%></h2>
                                         <p>멘티</p>
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="single_counter p-y-2 m-t-1">
                                         <!-- <i class="fa fa-refresh m-b-1"></i> -->
-                                        <h2 class="statistic-counter">312</h2>
+                                        <h2 class="statistic-counter"><%=%></h2>
                                         <p>스터디</p>
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="single_counter p-y-2 m-t-1">
                                         <!-- <i class="fa fa-beer m-b-1"></i> -->
-                                        <h2 class="statistic-counter">480</h2>
+                                        <h2 class="statistic-counter"><%=%></h2>
                                         <p>평가</p>
                                     </div>
                                 </div>
@@ -324,6 +333,9 @@
                   delay: 10,
                   time: 200
               });
+
+    return false; 
+});
     </script>
     
    

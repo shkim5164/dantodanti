@@ -3,6 +3,9 @@
     .mypage {
         text-align:center;
     }
+    .username{
+      font-size:2.5em;
+    }
     a:link {
       color: black;
       text-decoration: none;
@@ -12,12 +15,6 @@
     }
     th{
         text-align :right;
-    }
-    
-    .image {
-        border-radius: 300px;
-        width: 200px;
-        height: 200px;
     }
     
     .user-profile-image {
@@ -44,11 +41,11 @@
 
         <!--이하는 프사 및 유저이름 (form 상단)-->
         <div class="user-profile">
-          <span class="my_page"><%= resource_name.to_s.humanize %></span> <!--프사 위에 뜨는 유저이름-->
+          <span class="username"><%= current_user.username %></span> <!--프사 위에 뜨는 유저이름-->
           <!--이하는 프로필사진-->
           <% if current_user.image.url.nil? %>
-            <img class="image" src="/img/cute.jpg" class="user-profile-image" alt="profile">
-            <p>프로필이 없습니다. 프로필을 등록해주세요</p>
+            <img src="/img/cute.jpg" class="user-profile-image" alt="profile">
+            <p><b>프로필이 없습니다. 프로필을 등록해주세요</b></p>
             <%= form_tag '/main/create', method: :post, class: 'user-profile-form',multipart: true do %>
               <input type="file" name="image" value="imgae">
               <input type="hidden" name="user" value="<%=current_user.id%>">
