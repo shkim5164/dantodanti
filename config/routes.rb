@@ -1,21 +1,21 @@
 Rails.application.routes.draw do
 
-  #메인메뉴
+
+  #메인컨트롤러
   root 'main#bmain'
 
   get 'main' => 'main#main'
 
-  get 'main/cards' #얘가 메인네브에서 '멘토링' 눌렀을 때 실행되는거
+  get 'main/mentoring' 
 
-  get 'main/execution' #공개처형뷰로 이동
+  get 'main/execution' 
   
   get 'main/bmain' 
   
-  get 'main/mypage'
+  get 'main/mypage' #내정보 이동
+  post 'main/create'=> 'main#create' #내정보 프로필 수정
+
   
-  get 'main/design'
-  
-  get 'main/ranking' #얘 도대체 뭐하는앤지 모르겠음 뷰도 없고
   
   
 
@@ -65,8 +65,6 @@ Rails.application.routes.draw do
   
   get 'main/sugang/:suup_id/:user_id' => 'main#sugang'
 
-  post 'main/create'=> 'main#create'
-  
   get 'public/rank/:id'=> 'public#rank'
 
 end

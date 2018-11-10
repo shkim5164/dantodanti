@@ -1,9 +1,8 @@
 class MainController < ApplicationController
-  layout :admin_layout,:only => [:bmain, :design]
   before_action :authenticate_user!
 
   def bmain
-    render :layout => 'bmain'
+    render layout: "bmain"
   end
 
   def main
@@ -12,24 +11,20 @@ class MainController < ApplicationController
   
   def execution
     @allrecord = Blacklist.all
-    render :layout => 'execution'
+    render layout: "execution"
   end
   
-  def design
-    render :layout => 'design'
-  end
-  
-  def cards #이게 멘토링
+  def mentoring
     @popsuup = Suup.all.limit(6)
     @suups = Suup.order(":created_at desc").page(params[:page]).per(9)
   end
   
   def mypage
     @suup_info = Suup.all.limit(3)
-    render :layout => 'mypage'
   end
   
-  
+
+
   def sugang
     @sinchung=Sinchung.new
     @sinchung.user_id=params[:user_id]
@@ -39,17 +34,13 @@ class MainController < ApplicationController
     redirect_to '/main/mentoring'
     
   end
-  def create
+
+  def create #내정보에서 프로필사진 수정
     @user = User.find(params[:user])
     @user.image = params[:image]
     @user.save
     # redirect_back(fallback_location: root_path)
     
-    
-  def ranking
-  end
-    
     redirect_to '/users/edit'
-    
   end
 end

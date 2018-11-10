@@ -15,10 +15,6 @@ class MentorrqController < ApplicationController
   def edit
     @numb = params[:id]
     @findone = List.find(@numb)
-    
-  
-  
-  
   end
   
   def update

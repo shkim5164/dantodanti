@@ -1,0 +1,46 @@
+<!-- 상단 네브바 -->
+    <nav class="navbar navbar-expand-lg navbar-light py-lg-2 bg-light" id="mainNav">
+        <!--<a class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none" href="/main">단토단티</a>-->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          
+          <!--로고-->
+          <div class="col-3">
+            <a href="/main">
+              <img src="/img/logo.png" alt="dantodantilogo" height="auto" width="100px">
+            </a>
+          </div>
+          
+          <!--메인메뉴-->
+          <div class="container col-6 d-flex justify-content-center">
+          <ul class="nav">
+            <li class="nav-item">
+              <a class="nav-link navbar-brand" href="/main"><img src="/svg/001-smiley.svg" align="middle" height="20px" width="auto">홈으로</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link navbar-brand" href="/main/mentoring"><img src="/svg/005-cool.svg" align="middle" height="20px" width="auto">멘토링</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link navbar-brand" href="/main/execution"><img src="/svg/002-devil.svg" align="middle" height="20px" width="auto">공개처형</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link navbar-brand" href="/main/mypage"><img src="/svg/006-emotion.svg" align="middle" height="20px" width="auto">내정보</a>
+            </li>
+          </ul>
+          </div>
+          
+          <!--사용자정보 및 로그인/아웃-->
+          <div class="col-3 d-flex justify-content-right">
+                <% if user_signed_in? %>
+                <a class="nav-item col"><img src="/img/profile1.png" height="20px" width="auto" style="border-radius:50%">김순후 | 멘티</a>
+                <a class="nav-item col" href="/users/sign_out">로그아웃</a>
+                <% else %>
+                <a class="nav-item col"><img src="/img/profile1.png" height="20px" width="auto" style="border-radius:50%">김순후 | 멘티</a>
+                <a class="nav-item col" href="/users/sign_in">로그인</a>
+                <% end %>
+          </div>
+        </div>
+    </nav>
+    <!--네브바끝-->
