@@ -17,9 +17,9 @@ Rails.application.routes.draw do
 
   
   
-  
-
   devise_for :users, :controllers => { registrations: 'users/registrations' }
+
+
 
   get 'mentorrq/index' => 'mentorrq#index'
   get 'mentorrq/write'
@@ -35,7 +35,6 @@ Rails.application.routes.draw do
   get 'mentoraw/destroy/:a_id' => 'mentoraw#destroy'
   
 
-  # root 'public#index'
   
   get 'public/write'
   post 'public/create'
