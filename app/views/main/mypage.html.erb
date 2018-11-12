@@ -1,3 +1,12 @@
+<head>
+<style>
+  .likes img{
+      display:block;
+      margin-bottom:-32px;
+  }
+</style>
+</head>
+
 
 <body class="bg-light">
     
@@ -8,11 +17,18 @@
         <!--프로필사진-->
         <img class="img my-4" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0_2nqm0H20gpO-Pf9BsBwuAYt3McWcb-6rFs37i244h71Lyrnkg" width="200px" height="200px" style="border-radius: 300px;">
       </div>
-      <div class="p-4 m-auto">
-        <!--하트아이콘-->
-        <img src="/svg/heart.svg" align="middle" height="50px" width="auto"> 
-        <br> 
-          <strong>50</strong>
+      <div class="likes p-4 m-auto">
+            <%if current_user.like == nil%>
+              <!--빈하트-->
+              <img class="mx-auto" src="/svg/emptyheart.svg" height="30px" width="auto"alt="emptyHeart">
+              <br>
+              0
+            <%else%>
+              <!--하트아이콘-->
+              <img src="/svg/heart.svg" height="30px" width="auto"> 
+              <br>
+              <strong><%=current_user.like%></strong><!--좋아요 수-->
+            <%end%>
       </div>
       <div class="p-4 m-auto" >
         <b>멘티 50명</b>
@@ -26,6 +42,7 @@
         <%=current_user.usernumber%>학번<br>
         
         <a class="btn btn-primary" href="/users/edit" role="button">수정하기</a>
+        <p><a href="/mentorrq/write"><button class="btn">멘토신청하러가기</button></a></p>
       </div>
     </div>
     

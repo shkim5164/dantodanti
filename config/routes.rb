@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  #관리자(어드민) 계정 관련 기능들
+  get 'admin/mentorrq' #전체 멘토신청을 볼 수 있고 등업을 시켜줄수 있는 뷰
 
   #메인컨트롤러
   root 'main#bmain'

@@ -1,15 +1,10 @@
 class MentorrqController < ApplicationController
   before_action :authenticate_user!
   def index
-    @allrecord = List.all #모델에 있는 모든 데이터 불러오기
-    @d = Mentor.first
-    @posts = List.order(:id).page(params[:page]).per(10)
-    
-    
+    @posts = List.where(user_id: current_user.id)
   end
   
   def write
-    
   end
   
   def edit

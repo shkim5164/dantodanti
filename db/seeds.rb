@@ -6,6 +6,10 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 
 
+#!!!!!admin 계정!!!!!!
+User.create(email:'admin@dantodanti.com',password:'admin123',password_confirmation:'admin123',username:'관리자')
+
+
 for i in 1..100
     Suup.create(title: "수업#{i}", mentor_id: 1, endtime: Time.new(2018, 8, 26, 10, 00, 00))
 end

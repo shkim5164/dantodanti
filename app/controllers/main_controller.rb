@@ -16,7 +16,7 @@ class MainController < ApplicationController
   
   def mentoring
     @popsuup = Suup.all.limit(10)
-    @suups = Suup.order(":created_at desc").page(params[:page]).per(9)
+    @suups = Suup.order(created_at: :desc).page(params[:page]).per(9)
   end
   
   def mypage

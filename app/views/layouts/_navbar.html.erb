@@ -1,20 +1,37 @@
+<head>
+  <style>
+  nav{
+    height:4em;
+  }
+  /*네브바 오른쪽부분좀 고치고싶다...*/
+  .userInfo li{
+  }
+  .user{
+  }
+  /*ㅠㅠ*/
+  </style>
+</head>
+
+
+
 <!-- 상단 네브바 -->
-    <nav class="navbar navbar-expand-lg navbar-light py-lg-2 bg-light" id="mainNav">
+    <nav class="navbar navbar-expand-lg navbar-light py-lg-2 bg-light d-flex justify-content-between flex-nowrap" id="mainNav">
         <!--<a class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none" href="/main">단토단티</a>-->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
+
         <div class="collapse navbar-collapse" id="navbarResponsive">
           
           <!--로고-->
-          <div class="col-3">
+          <div class="navbar-brand">
             <a href="/main">
               <img src="/img/logo.png" alt="dantodantilogo" height="auto" width="100px">
             </a>
           </div>
           
           <!--메인메뉴-->
-          <div class="container col-6 d-flex justify-content-center">
+          <div class="container d-flex justify-content-center">
           <ul class="nav">
             <li class="nav-item">
               <a class="nav-link navbar-brand" href="/main"><img src="/svg/001-smiley.svg" align="middle" height="20px" width="auto">홈으로</a>
@@ -32,15 +49,24 @@
           </div>
           
           <!--사용자정보 및 로그인/아웃-->
-          <div class="col-3 d-flex justify-content-right">
-                <% if user_signed_in? %>
-                <a class="nav-item col"><img src="/img/profile1.png" height="20px" width="auto" style="border-radius:50%">김순후 | 멘티</a>
-                <a class="nav-item col" href="/users/sign_out">로그아웃</a>
-                <% else %>
-                <a class="nav-item col"><img src="/img/profile1.png" height="20px" width="auto" style="border-radius:50%">김순후 | 멘티</a>
-                <a class="nav-item col" href="/users/sign_in">로그인</a>
-                <% end %>
+          <div class="userInfo">
+            <ul class="navbar-nav">
+              <% if user_signed_in? %>
+              <li class="nav-item user">
+                <a class="nav-link" href="/main/mypage"><img src="/img/profile1.png" height="20px" width="auto" style="border-radius:50%; margin-right:5px; margin-bottom:3px"><%=current_user.username%></a>
+              </li>
+              <li class="nav-item">
+                <!--이거 눌렀을때 나오는걸로 비동기처리로 새로운 box뜨게해서 그 안에 logout뜨면 예쁠듯-->
+                <a class="nav-link" href="/users/sign_out">로그아웃</a>
+              </li>
+              <% else %>
+              <li class="nav-item">
+                <a class="nav-link" href="/users/sign_in">로그인</a>
+              </li>
+              <% end %>
+            </ul>
           </div>
+
         </div>
     </nav>
     <!--네브바끝-->
