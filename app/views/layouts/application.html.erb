@@ -31,12 +31,9 @@
       }
 
       #mainNav{
-        position:relative;
       }
       #mainContents{
-        position:absolute;
         padding:0;
-
       }
     </style>
   
@@ -59,13 +56,13 @@
     <!-- CSS overriding by Donggyu -->
     <link rel="stylesheet" type="text/css" href="/css/mainTheme.css">
 </head>
-<body>
+<body class="d-flex flex-column">
   <!-- 상단 네브바 -->
   <%= render "layouts/navbar"%>
   <!--네브바끝-->
     
  
-  <div class="container-fluid" id="mainContents">
+  <div class="container-fluid flex-grow-1" id="mainContents">
       <%= yield %>
   </div>
   

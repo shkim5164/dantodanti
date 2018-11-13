@@ -1,69 +1,63 @@
 class MentorrqController < ApplicationController
   before_action :authenticate_user!
-  def index
-    @posts = List.where(user_id: current_user.id)
-  end
+  before_action :set_post only: [:edit, :update, :show, :destory]
+
   
-  def write
-  end
-  
-  def edit
-    @numb = params[:id]
-    @findone = List.find(@numb)
-  end
-  
-  def update
-    @numb = params[:id]
-    @record = List.find(@numb)
-    @record.name = params[:name]
-    @record.content = params[:content]
-    @record.save
-    redirect_to '/mentorrq/index'
+  #CREATE
+  def new
   end
   
   def create
-    @newrecord = List.new # 대문자로 적어야 모델이라고 인식
-    @newrecord.user_id = current_user.id #name(앞) 항목에는 파라미터로 받아온 name 을 저장하고
-    @newrecord.content = params[:content]  #content 항목에는 파라미터로 받아온 content를 저장
+    @newpost = List.new
+    @newpost.user_id = current_user.id #name(앞) 항목에는 파라미터로 받아온 name 을 저장하고
+    @newpost.content = params[:content]  #content 항목에는 파라미터로 받아온 content를 저장
     
-    @newrecord.save # 안해주면 날라감
-    redirect_to "/mentorrq/show/#{@newrecord.id}" # 저장하면 show로 바로 넘어감
-    
-    
-    
+    @newpost.save # 안해주면 날라감
+    redirect_to "/mentorrq/show/#{@newpost.id}" # 저장하면 show로 바로 넘어감
   end
   
-  
-  def show
-   @show1 = params[:id]
-   
-   @findone = List.find(@show1)
-   
-   @s_name = @findone.user_id
-   @email = User.find(user_id)
-   @s_content = @findone.content
-   
-   @findtwo = Answer.where(question_id: @show1)
+  #READ
+  def index
+    @posts = List.where(user_id: current_user.id)
+  end
 
+  def show
+    @post = List.find(@post)
   end
   
-  def delete
+  #UPDATE
+  def edit 
+  end
+  
+  def update
+    @post.name = params[:name]
+    @post.content = params[:content]
+    @post.save
+    redirect_to '/mentorrq/index'
+  end
+  
+  
+  #DELEATE
+  
+  def destory
     @delete = params[:id]
     @del = List.find(@delete)
     @del.destroy
     redirect_to "/mentorrq/index"
   end
   
-  def levelup
+  def levelup #admin only!!
     @numb = params[:id]
     mentor = Mentor.new
     mentor.user_id = @numb
     mentor.save
-    
-    
-    redirect_to "/mentorrq/index"
-
+    redirect_to "/admin/mentorrq"
   end
-  
+
+private
+  def set_post
+    @post = List.find(params[:id])
+  end
+
     
 end

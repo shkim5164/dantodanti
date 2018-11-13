@@ -15,13 +15,15 @@
 
 
 //멘토신청
-2. mentorrq_controller.rb (멘토신청게시판)
-
-    -index가 '멘토신청게시판'
-3. mentoraw_controller.rb (멘토신청게시판 댓글)
+2. mentorrq_controller.rb : 멘토신청게시판
+    -index는 유저가 본인의 멘토신청을 볼 수 있는 뷰
+    -write는 멘토 신청 뷰
+3. mentoraw_controller.rb :멘토신청게시판 댓글...?**이게 필요한가?**
+    
 
 //멘토링?
-4. mentoring_controller.rb (????)
+4. mentoring_controller.rb : 멘토링 클래스 (suup)
+
 
 //공개처형
 5. public_controller.rb (공개처형게시판)
@@ -34,6 +36,9 @@ controllers/users/에 있는 6개 컨트롤러 중 회원가입 및 정보수정
 users/registrations_controller.rb 이라는 컨트롤러에서 담당
     - sign_up_params (회원가입)
     - edit_params (회원정보수정)
+
+
+
 
 
 ## user 뷰!! (devise로 생성된)
@@ -52,6 +57,16 @@ unlocks -> 얘도 잘..
 
 ## 모델 정리
 
+Answer - 
+Blacklist - 블랙리스트 (for 공개처형)
+Comment - 블랙리스트 show의 코멘트..^^;
+Like - ?
+List - 멘토신청게시판
+Mentor - 멘토목록
+Sinchung - 
+Suup
+User
+
 
 ## PLEASE FIX THIS
 - execution에서 뒤로가기를 하면 이전 화면으로 자동으로 렌더링되지 않고 새로고침을 해주어야함 ㅠㅠ
@@ -68,4 +83,5 @@ unlocks -> 얘도 잘..
 - 멘토신청게시판 -> admin으로(등업버튼도있고). 신청하면 게시판이 아닌 바로 신청폼으로 이동하게 만들고 게시판은 only admin으로(수정은 당연하고 읽기도)
 
 - User에 멘토인 애들 구분하기 위해 boolean column 하나 추가해야하지 않나? -> migrate새거 만들어야? (rake drop 그만)
+
 - Mentor에 has_many :수업 추가해야..Mento랑 User는 다대다 관계니까 이거 해소시켜야 -> 중간에 연결테이블로 수업을..
