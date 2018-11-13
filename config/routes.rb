@@ -13,8 +13,6 @@ Rails.application.routes.draw do
   get 'main/mypage' #내정보 이동
   post 'main/create'=> 'main#create' #내정보 프로필 수정
 
-  
-  
   devise_for :users, :controllers => { registrations: 'users/registrations' }
 
 

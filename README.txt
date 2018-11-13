@@ -60,12 +60,12 @@ unlocks -> 얘도 잘..
 Answer - 
 Blacklist - 블랙리스트 (for 공개처형)
 Comment - 블랙리스트 show의 코멘트..^^;
-Like - ?
+Like - 좋아요에 필요한 모델(어떤 user 혹은 mentor가 어떤 mentor를 좋아하는지)
 List - 멘토신청게시판
 Mentor - 멘토목록
-Sinchung - 
-Suup
-User
+Sinchung - 수업신청
+Suup - 멘토링클래스
+User - 유저
 
 
 ## PLEASE FIX THIS
@@ -74,17 +74,6 @@ User
 레이아웃 렌더링에 문제가 있는 듯 해서 (execution만 except인걸로 해줘야하나)
 정확한 방법을 공부중
 
-
-- view/registrations/edit.html.erb 나이이름학과학번 작동X -> 해결! + 수정이후 redirect가 무조건 root로 되던 문제 registrations_controller에 after_update_path_for 추가함으로서 해결! (+ after_sign_up도 추가)
-
--bmain에서 로고랑 welcome(로그인시 네브바 우측끝에 나오는 환영인사)에 드래그 금지 적용하고싶은데 cascading이 문제인지..
--bmain 디자인이 조금 허전해서 칠판같은 느낌을 조금 더 추가했으면? 아니면 아예 리뉴얼하던지(여기라도 부트스트랩템플릿 갈아엎고)
-
-- 멘토신청게시판 -> admin으로(등업버튼도있고). 신청하면 게시판이 아닌 바로 신청폼으로 이동하게 만들고 게시판은 only admin으로(수정은 당연하고 읽기도)
-
-- User에 멘토인 애들 구분하기 위해 boolean column 하나 추가해야하지 않나? -> migrate새거 만들어야? (rake drop 그만)
-
-- Mentor에 has_many :수업 추가해야..Mento랑 User는 다대다 관계니까 이거 해소시켜야 -> 중간에 연결테이블로 수업을..
+-bmain 디자인 개선
 
 - Main/main 레이아웃 grid로 다시짜서 grid-gap 적용, 사이사이로 뒷배경 색 보이게
-- Mentoring도 레이아웃 다시짜자 ㅠㅠ..나아중에 여유나면..

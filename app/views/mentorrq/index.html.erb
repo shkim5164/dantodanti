@@ -2,10 +2,6 @@
 
 <head>
   <style>
-  .wpahr { 
-    width :300px;
-  }  
-  
   .table {
     width: 100%;
     text-align: center;
@@ -15,16 +11,6 @@
     padding:50px 100px;
   }
   
-  .wkrtjdwk{
-    width: 200px;
-  }
-  
-  .qjsgh {
-    width: 100px;
-  }
-  .created_at{
-    width:300px;
-  }
   
   a {
      text-align: right;
@@ -53,11 +39,11 @@
    <h1><b><%=current_user.username%></b> 님의 멘토신청</h1>
   <thead>
     <tr>
-      <th scope="col" class="qjsgh">번호</th>
-      <th scope="col" class="wpahr">제목</th>
-      <th scope="col" class="wkrtjdwk">작성자</th>
+      <th scope="col">번호</th>
+      <th scope="col">제목</th>
+      <th scope="col">작성자</th>
       <th scope="col">등업상태</th>
-      <th scope="col" class="created_at">작성일</th>
+      <th scope="col">작성일</th>
     </tr>
   </thead>
   <tbody>
@@ -81,7 +67,7 @@
       <% end %>    
   </tbody>
 </table>
-<p><a href="/mentorrq/new"><button class="btn">멘토신청하러가기</button></a></p>
+<p style="float:right"><a href="/mentorrq/new"><button class="btn">멘토신청하러가기</button></a></p>
 
 
 
