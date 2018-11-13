@@ -1,6 +1,6 @@
 class MentorrqController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_post only: [:edit, :update, :show, :destory]
+  before_action :set_post, only: [:edit, :update, :show, :destory]
 
   
   #CREATE
@@ -9,11 +9,10 @@ class MentorrqController < ApplicationController
   
   def create
     @newpost = List.new
-    @newpost.user_id = current_user.id #name(앞) 항목에는 파라미터로 받아온 name 을 저장하고
-    @newpost.content = params[:content]  #content 항목에는 파라미터로 받아온 content를 저장
-    
-    @newpost.save # 안해주면 날라감
-    redirect_to "/mentorrq/show/#{@newpost.id}" # 저장하면 show로 바로 넘어감
+    @newpost.user_id = current_user.id 
+    @newpost.content = params[:content]  
+    @newpost.save 
+    redirect_to "/mentorrq/index" 
   end
   
   #READ

@@ -15,58 +15,58 @@
 
 
 <!-- 상단 네브바 -->
-    <nav class="navbar navbar-expand-lg navbar-light py-lg-2 bg-light d-flex justify-content-between flex-nowrap" id="mainNav">
-        <!--<a class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none" href="/main">단토단티</a>-->
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+<nav class="navbar navbar-expand-lg navbar-light py-lg-2 bg-light d-flex justify-content-between flex-nowrap" id="mainNav">
+    <!--<a class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none" href="/main">단토단티</a>-->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          
-          <!--로고-->
-          <div class="navbar-brand">
-            <a href="/main">
-              <img src="/img/logo.png" alt="dantodantilogo" height="auto" width="100px">
-            </a>
-          </div>
-          
-          <!--메인메뉴-->
-          <div class="container d-flex justify-content-center">
-          <ul class="nav">
-            <li class="nav-item">
-              <a class="nav-link navbar-brand" href="/main"><img src="/svg/001-smiley.svg" align="middle" height="20px" width="auto">홈으로</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link navbar-brand" href="/main/mentoring"><img src="/svg/005-cool.svg" align="middle" height="20px" width="auto">멘토링</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link navbar-brand" href="/main/execution"><img src="/svg/002-devil.svg" align="middle" height="20px" width="auto">공개처형</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link navbar-brand" href="/main/mypage"><img src="/svg/006-emotion.svg" align="middle" height="20px" width="auto">내정보</a>
-            </li>
-          </ul>
-          </div>
-          
-          <!--사용자정보 및 로그인/아웃-->
-          <div class="userInfo">
-            <ul class="navbar-nav">
-              <% if user_signed_in? %>
-              <li class="nav-item user">
-                <a class="nav-link" href="/main/mypage"><img src="/img/profile1.png" height="20px" width="auto" style="border-radius:50%; margin-right:5px; margin-bottom:3px"><%=current_user.username%></a>
-              </li>
-              <li class="nav-item">
-                <!--이거 눌렀을때 나오는걸로 비동기처리로 새로운 box뜨게해서 그 안에 logout뜨면 예쁠듯-->
-                <a class="nav-link" href="/users/sign_out">로그아웃</a>
-              </li>
-              <% else %>
-              <li class="nav-item">
-                <a class="nav-link" href="/users/sign_in">로그인</a>
-              </li>
-              <% end %>
-            </ul>
-          </div>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      
+      <!--로고-->
+      <div class="navbar-brand">
+        <a href="/main">
+          <img src="/img/logo.png" alt="dantodantilogo" height="auto" width="100px">
+        </a>
+      </div>
+      
+      <!--메인메뉴-->
+      <div class="container d-flex justify-content-center">
+      <ul class="nav">
+        <li class="nav-item">
+          <a class="nav-link navbar-brand" href="/main"><img src="/svg/001-smiley.svg" align="middle" height="20px" width="auto">홈으로</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link navbar-brand" href="/main/mentoring"><img src="/svg/005-cool.svg" align="middle" height="20px" width="auto">멘토링</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link navbar-brand" href="/main/execution"><img src="/svg/002-devil.svg" align="middle" height="20px" width="auto">공개처형</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link navbar-brand" href="/main/mypage"><img src="/svg/006-emotion.svg" align="middle" height="20px" width="auto">내정보</a>
+        </li>
+      </ul>
+      </div>
+      
+      <!--사용자정보 및 로그인/아웃-->
+      <div class="userInfo">
+        <ul class="navbar-nav">
+          <% if user_signed_in? %>
+          <li class="nav-item user">
+            <a class="nav-link" href="/main/mypage"><img src="/img/profile1.png" height="20px" width="auto" style="border-radius:50%; margin-right:5px; margin-bottom:3px"><%=current_user.username%></a>
+          </li>
+          <li class="nav-item">
+            <!--이거 눌렀을때 나오는걸로 비동기처리로 새로운 box뜨게해서 그 안에 logout뜨면 예쁠듯-->
+            <a class="nav-link" href="/users/sign_out">로그아웃</a>
+          </li>
+          <% else %>
+          <li class="nav-item">
+            <a class="nav-link" href="/users/sign_in">로그인</a>
+          </li>
+          <% end %>
+        </ul>
+      </div>
 
-        </div>
-    </nav>
-    <!--네브바끝-->
+    </div>
+</nav>
+<!--네브바끝-->

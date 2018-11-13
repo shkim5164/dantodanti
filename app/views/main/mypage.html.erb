@@ -4,83 +4,89 @@
       display:block;
       margin-bottom:-32px;
   }
+  .userinfo{
+    display:flex;
+    color:white; 
+    text-align:center; 
+    font-size:1.3rem;
+  }
+  body{
+    display:flex;
+  }
 </style>
 </head>
 
 
 <body class="bg-light">
-    
-    
-    <!--최상단-->
-    <div class="row bg-dark px-5" style="disaply:flex;color:white; text-align:center; font-size:1.3rem;">
-      <div>
-        <!--프로필사진-->
-        <img class="img my-4" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0_2nqm0H20gpO-Pf9BsBwuAYt3McWcb-6rFs37i244h71Lyrnkg" width="200px" height="200px" style="border-radius: 300px;">
-      </div>
-      <div class="likes p-4 m-auto">
-            <%if current_user.like == nil%>
-              <!--빈하트-->
-              <img class="mx-auto" src="/svg/emptyheart.svg" height="30px" width="auto"alt="emptyHeart">
-              <br>
-              0
-            <%else%>
-              <!--하트아이콘-->
-              <img src="/svg/heart.svg" height="30px" width="auto"> 
-              <br>
-              <strong><%=current_user.like%></strong><!--좋아요 수-->
-            <%end%>
-      </div>
-      <div class="p-4 m-auto" >
-        <b>멘티 50명</b>
-      </div>
-      <div class="p-4 m-auto">
-        <strong>인기도 120</strong>
-      </div>
-      <div class="p-4 m-auto">
-        <%=current_user.username%><br>
-        <%=current_user.userdepartment%><br>
-        <%=current_user.usernumber%>학번<br>
-        
-        <a class="btn btn-primary" href="/users/edit" role="button">수정하기</a>
-        <p><a href="/mentorrq/write"><button class="btn">멘토신청하러가기</button></a></p>
-      </div>
+  <div class="userinfo bg-dark px-5" >
+    <div>
+      <!--프로필사진-->
+      <img class="img my-4" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0_2nqm0H20gpO-Pf9BsBwuAYt3McWcb-6rFs37i244h71Lyrnkg" width="200px" height="200px" style="border-radius: 300px;">
     </div>
-    
-    <!--메인컨텐츠(클래스,질답목록)-->
-    <div class="row mx-5 my-3">
-      <!--운영중인 멘토링 클래스-->
-      <h5>현재 운영중인 멘토링</h5>
-      <table class="table table-sm table-bordered table-dark" style="text-align:center;">
-        <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">수업명</th>
-            <th scope="col">수업내용</th>
-            <th scope="col">학생수 (0/20)</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td><%=@suup_info.first.title%></td>
-            <td><%=@suup_info.first.content%></td>
-            <td>학생수</td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td><%=@suup_info.second.title%></td>
-            <td><%=@suup_info.second.content%></td>
-            <td>학생수</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td><%=@suup_info.last.title%></td>
-            <td><%=@suup_info.last.content%></td>
-            <td>학생수</td>
-          </tr>
-        </tbody>
-      </table>
+    <div class="likes p-4 m-auto">
+          <%if current_user.like == nil%>
+            <!--빈하트-->
+            <img class="mx-auto" src="/svg/emptyheart.svg" height="30px" width="auto"alt="emptyHeart">
+            <br>
+            0
+          <%else%>
+            <!--하트아이콘-->
+            <img src="/svg/heart.svg" height="30px" width="auto"> 
+            <br>
+            <strong><%=current_user.like%></strong><!--좋아요 수-->
+          <%end%>
+    </div>
+    <div class="p-4 m-auto" >
+      <b>멘티 50명</b>
+    </div>
+    <div class="p-4 m-auto">
+      <strong>인기도 120</strong>
+    </div>
+    <div class="p-4 m-auto">
+      <%=current_user.username%><br>
+      <%=current_user.userdepartment%><br>
+      <%=current_user.usernumber%>학번<br>
       
+      <a class="btn btn-primary" href="/users/edit" role="button">수정하기</a>
+      <p><a href="/mentorrq/index"><button class="btn">멘토신청하러가기</button></a></p>
     </div>
+  </div>
+  
+  <!--메인컨텐츠(클래스,질답목록)-->
+  <div class="row mx-5 my-3">
+    <!--운영중인 멘토링 클래스-->
+    <strong><h5>나의 멘토링 클래스</h5></strong>
+    <table class="table table-sm table-bordered table-dark" style="text-align:center;">
+      <thead>
+        <tr>
+          <th scope="col"></th>
+          <th scope="col">수업명</th>
+          <th scope="col">수업내용</th>
+          <th scope="col">학생수 (0/20)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">1</th>
+          <td><%=@suup_info.first.title%></td>
+          <td><%=@suup_info.first.content%></td>
+          <td>학생수</td>
+        </tr>
+        <tr>
+          <th scope="row">2</th>
+          <td><%=@suup_info.second.title%></td>
+          <td><%=@suup_info.second.content%></td>
+          <td>학생수</td>
+        </tr>
+        <tr>
+          <th scope="row">3</th>
+          <td><%=@suup_info.last.title%></td>
+          <td><%=@suup_info.last.content%></td>
+          <td>학생수</td>
+        </tr>
+      </tbody>
+    </table>
     
+  </div>
+  
 </body>

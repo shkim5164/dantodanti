@@ -22,6 +22,9 @@
   .qjsgh {
     width: 100px;
   }
+  .created_at{
+    width:300px;
+  }
   
   a {
      text-align: right;
@@ -54,6 +57,7 @@
       <th scope="col" class="wpahr">제목</th>
       <th scope="col" class="wkrtjdwk">작성자</th>
       <th scope="col">등업상태</th>
+      <th scope="col" class="created_at">작성일</th>
     </tr>
   </thead>
   <tbody>
@@ -70,13 +74,14 @@
             <span>멘토 등록완료!</span>
             <% end %>
           </td>
+          <td>
+            <%=p.created_at%>
+          </td>
         </tr>
       <% end %>    
-           
-    
   </tbody>
-
 </table>
+<p><a href="/mentorrq/new"><button class="btn">멘토신청하러가기</button></a></p>
 
 
 

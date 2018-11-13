@@ -85,3 +85,6 @@ User
 - User에 멘토인 애들 구분하기 위해 boolean column 하나 추가해야하지 않나? -> migrate새거 만들어야? (rake drop 그만)
 
 - Mentor에 has_many :수업 추가해야..Mento랑 User는 다대다 관계니까 이거 해소시켜야 -> 중간에 연결테이블로 수업을..
+
+- Main/main 레이아웃 grid로 다시짜서 grid-gap 적용, 사이사이로 뒷배경 색 보이게
+- Mentoring도 레이아웃 다시짜자 ㅠㅠ..나아중에 여유나면..
