@@ -7,7 +7,6 @@ class MentorawController < ApplicationController
 
        newa.save
        redirect_to "/mentorrq/show/#{params[:id]}"
-    # 루비문서내에서 스트링 안에 루비문으로 인식하고싶을ㄸㅐ ? 
     end
 
     def destroy

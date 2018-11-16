@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<!-- Custome fonts added by donggyu -->
+<html lang="en">
+<head>
+  <title>메인페이지</title>
+  <style>
+    #mainContents{
+      padding:30px;
+    }
+  </style>
+</head>
+
+<body>
+    <div class="row">
+      <!--멘토랭킹-->
+        <div class="col">
+          
+        
+        
+        <table class="table table-sm">
+          <thead class="thead-light">
+            <tr>
+               <th class="px-3" colspan="5" style="text-align:right;">멘토랭킹</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>NO</td>
+              <td>멘토명(별명?)</td>
+              <td>학과</td>
+              <td>인기도</td>
+            </tr>
+            <tr>
+              <th scope="row">1</th>
+              <td>Mark</td>
+              <td>컴퓨터공학과</td>
+              <td>@100</td>
+              <td align="center"><button type="button" class="btn btn-sm btn-warning">click!</button></td>
+            </tr>
+            <tr>
+              <th scope="row">2</th>
+              <td>Jacob</td>
+              <td>소프트웨어학과</td>
+              <td>@87</td>
+              <td align="center"><button type="button" class="btn btn-sm btn-warning">click!</button></td>
+            </tr>
+            <tr>
+              <th scope="row">3</th>
+              <td>Larry</td>
+              <td>경영학과</td>
+              <td>@79</td>
+              <td align="center"><button type="button" class="btn btn-sm btn-warning">click!</button></td>
+            </tr>
+          </tbody>
+        </table>
+        </div>
+        
+        <div class="col">
+        <!--수업랭킹-->
+        <table class="table table-sm">
+          <thead class="thead-light">
+            <tr>
+               <th class="px-3"colspan="5" style="text-align:right;">수업랭킹</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>NO</td>
+              <td>수업명</td>
+              <td>멘티(명)</td>
+              <td>인기도</td>
+            </tr>
+            <tr>
+              <th scope="row">1</th>
+              <td>기초경제학</td>
+              <td>97</td>
+              <td>@1203</td>
+              <td align="center"><button type="button" class="btn btn-sm btn-warning">click!</button></td>
+            </tr>
+            <tr>
+              <th scope="row">2</th>
+              <td>웹프로그래밍</td>
+              <td>70</td>
+              <td>@1103</td>
+              <td align="center"><button type="button" class="btn btn-sm btn-warning">click!</button></td>
+            </tr>
+            <tr>
+              <th scope="row">3</th>
+              <td>디자인의 이해</td>
+              <td>30</td>
+              <td>@790</td>
+              <td align="center"><button type="button" class="btn btn-sm btn-warning">click!</button></td>
+            </tr>
+          </tbody>
+        </table>
+    </div>
+    </div>
+    
+    <!--최신글-->
+    <table class="table my-2">
+      <thead class="thead-light">
+            <tr>
+               <th class="px-3" colspan="5" style="text-align:right;">최신글</th>
+            </tr>
+          </thead>
+      <tbody>
+        <tr>
+          <td>NO</td>
+          <td>제목</td>
+          <td>내용</td>
+          <td>장소</td>
+          <td>제한인원</td>
+        </tr>
+        
+      <% @allrecord.each do |d| %>
+        <tr>
+          <td><%= d.id %></td>
+          <td><%= d.title %></td>
+          <td><%= d.content %></td>
+          <td><%= d.place %></td>
+          <td><%= d.limitman %></td>
+        </tr>
+      <% end %>  
+        
+  
+      </tbody>
+    </table>
+</body>
+
+</html>

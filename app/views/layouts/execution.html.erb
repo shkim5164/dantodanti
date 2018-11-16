@@ -1,4 +1,7 @@
-<div style="background-color:black">
+<html>
+
+
+
 
 <head>
   <!-- Bootstrap4 CDN (새로추가된 것!) -->
@@ -11,7 +14,8 @@
   
   
 </head>
-  
+
+<body style="background-color:black">  
   <!--불주먹상단-->
   <div class="container.fluid" style="color:white;">
     <div class="row" style=" text-align:center;">
@@ -36,7 +40,7 @@
   <!--카드메인 (상위3명) -->
   <div class="row d-flex justify-content-center">
     
-  <% @allrecord.limit(3).each do |d| %>
+  <% @allrecord.limit(3).each do |d| %> 
         <div class="col-lg-3 col-md-4">
           <div class="card">
             <img class="card-img-top" src="http://placehold.it/500x325" alt>
@@ -83,7 +87,7 @@
   
   <p class="lead d-flex justify-content-center">
     <a class="btn btn-primary btn-lg m-1" href="/public/write" role="button">신고하기</a>
-    <a class="btn btn-primary btn-lg m-1" href="/menu/main" role="button">메인으로</a>
+    <a class="btn btn-primary btn-lg m-1" href="/main" role="button">메인으로</a>
   </p>
   
   <hr>
@@ -103,6 +107,6 @@
 <!--</div>-->
 
 
-</div>
 
-    
+</body>
+</html>

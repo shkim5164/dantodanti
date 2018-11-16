@@ -19,6 +19,7 @@ class MentoringController < ApplicationController
     
     def show
         @suup=Suup.find(params[:id])
+        @mentor= Mentor.find(@suup.id)
         
     end
     

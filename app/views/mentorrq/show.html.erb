@@ -1,12 +1,11 @@
-<a href="/mentorrq/index">목록</a>  
   <div class="jumbotron">
-    <h3>질문자 : <%= @email.email %></h3>
-    <hr class="my-4">
-    <p><%= @s_content %></p>
+    <h3>질문자 : <%= @post.user.email %></h3>
 
+    <hr class="my-4">
+
+    <p><%= @post.content %></p>
     
-     <a href="/mentorrq/edit/<%= @findone.id %>"><%= @findone.id %>번째 수정하기</a> <!--출력-->
-     <a href="/mentorrq/delete/<%= @findone.id %>">삭제하기</a>
-    
-    
+     <a href="/mentorrq/edit/<%= @post.id %>">수정하기</a>
+     <a href="/mentorrq/delete/<%= @post.id %>">삭제하기</a>
+     <a href="/main/mypage">돌아가기</a>
   </div>

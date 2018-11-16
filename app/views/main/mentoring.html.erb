@@ -1,0 +1,192 @@
+  <head>
+    <style>
+      ::scrollbar {
+        display: none;
+      }
+      ::-webkit-scrollbar { 
+        display: none; 
+      }
+      #galleryWrapper p {
+          white-space: normal!important;
+      }
+      #galleryWrapper {
+        overflow-x: scroll;
+        position: relative;
+        white-space: nowrap;
+        background: hsla(0, 0%, 88%, 0.73);
+        height: 100%;
+        width: 100%;
+      }
+      #imageWrapper {
+        /*display: flex;*/
+        /*height: 400px;*/
+        margin: 3px auto 0 auto;
+        overflow-x: scroll;
+        overflow-y: hidden;
+        white-space: nowrap;
+        width: 90%;
+      }
+      #prevThumb, #nextThumb {
+        position: absolute;
+        top: 50%;
+      }
+
+      #prevThumb {
+        left: 0;
+      }
+
+      #nextThumb {
+        right: 0;
+      }
+
+      .scbtn {
+        background: transparent;
+        border: none;
+        color: #DF1E25;
+        cursor: pointer;
+        font-size: 1.4em;
+        height: 40px;
+        opacity: .5;
+        outline: none;
+        width: 40px;
+      }
+        .scbtn:hover {
+          opacity: 1;
+        }
+
+      .pkmn {
+        margin: 4px;
+        width: 96px;
+        display: inline-block;
+        padding:10px;
+        text-align:center;
+        line-height:200%;
+      }
+      .pkmn img{
+        height:auto;
+        width:250px;
+        display:block;
+        margin:auto;
+        margin-bottom:15px;
+      }
+      .pkmn .card-body{
+        padding:0;
+      }
+      .pkmn .card-title, .card-text{
+        margin:0;
+      }
+
+      #p1 {
+        background-position: 0 0;
+      }
+
+      #p2 {
+        background-position: -96px 0;
+      }
+
+      #p3 {
+
+        background-position: -182px 0;
+      }
+
+      #p4 {
+        background-position: -288px 0;
+      }
+
+      #p5 {
+        background-position: -384px 0;
+      }
+
+      #p6 {
+        background-position: -480px 0;
+      }
+
+      .popularClass{
+      }
+      .runningClass{
+        margin-top:100px;
+      }
+      .paginate ul{
+
+      }
+    </style>
+    <script src="/js/scroll.js"></script>
+  </head>
+
+<body>
+  <div style=
+        "height: 11rem;
+        background-image: 
+                    url(http://www.hrreview.co.uk/wp-content/uploads/mentoring-768x307.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        background-color: black;"
+        >
+    <div style="background-color:black; opacity:0.7; text-align:center; height: 100%; vertical-align: middle; display:flex; align-items:center;justify-content:center;flex-direction:column">
+    <h1 style="color: white">멘토링게시판</h1> 
+    <p style="color: white">멘토링 게시판은 수업을 신청하는 게시판 입니다.</p>
+    </div>
+
+  <div class="container">
+    <div style="display:flex; justify-content:center; padding-top: 10px;">
+      <form class="form-inline" action="/mentoring/search" method="get">
+      <input name="title" type="text" class="form-control" placeholder="수업을 검색해보세요!" aria-label="Search the classes" aria-describedby="button-addon2">
+      <div class="input-group-append">
+        <button class="btn btn-outline-secondary" type="submit" id="button-addon2">검색</button>
+      </div>
+      </form>
+  </div>  
+  <div style="display: flex;
+  justify-content: center;
+  padding-top: 10px;
+  padding-bottom: 10px;">
+
+  <%if current.user.id %>
+    <a href="/mentoring/new">
+      <button class="btn btn-warning">새로운 수업 등록하기</button><!--mentor only!!-->
+    </a>
+  </div>
+  
+  <!--인기멘토링-->
+  <div class="popularClass row">
+    <h3 style="margin: 10px auto;">인기 멘토링</h3>
+
+    <div id="galleryWrapper">
+      <div id="imageWrapper">
+        <% @popsuup.each do |b| %>
+        <div class="card col-md-4 col-sm-1 np pkmn" style="width: 18rem;" id="p1">
+          <img class="card-img-top" src="/img/suup.jpg" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title"><%= b.title %></h5>
+            <p class="card-text">한줄소개</p>
+            <a href="/mentoring/show/<%= b.id %>" class="btn btn-warning">자세히 보기</a>
+          </div>
+        </div>
+      <% end %>
+      </div>
+      <a id="prevThumb" href="javascript: void(0)"><button class="scbtn">&#9664;</button></a>
+      <a id="nextThumb" href="javascript: void(0)"><button class="scbtn">&#9654;</button></a>
+    </div>
+  </div>
+  
+  <!--모집중 수업-->
+  <div class="runningClass" style="text-align:center; margin-top:10px;">
+    <h3>모집중인 수업</h3>
+    <% @suups.each do |b| %>
+    <div class="card col-md-4 col-sm-1 np pkmn" style="width: 18rem;" id="p1">
+      <img class="card-img-top" src="/img/suup.jpg" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title"><%= b.title %></h5>
+        <p class="card-text">한줄소개</p>
+        <a href="/mentoring/show/<%= b.id %>" class="btn btn-warning">자세히 보기</a>
+      </div>
+    </div>
+    <% end %>
+
+    <div class="paginate" style="display:flex;justify-content:center;margin-top:30px">
+      <%= paginate @suups %>
+    </div>
+
+  </div>
+</body>

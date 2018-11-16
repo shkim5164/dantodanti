@@ -1,6 +1,7 @@
 class Suup < ActiveRecord::Base
     has_many :sinchungs
-    #belongs_to :mento
+    has_many :users
+    belongs_to :mento
     
     scoped_search on: [:title]
 end

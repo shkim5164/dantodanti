@@ -16,6 +16,7 @@ class User < ActiveRecord::Base
   has_many :likes
   has_many :sinchungs
   has_many :lists
+  has_many :suup
   belongs_to :mentor
   
 
