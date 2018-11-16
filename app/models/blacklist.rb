@@ -1,8 +1,6 @@
 class Blacklist < ActiveRecord::Base
     has_many :comments
-    
     has_many :impressions, :as=>:impressionable
-    
     belongs_to :user
     has_many :likes
 

@@ -33,7 +33,7 @@
     인기도 120
 
     <div class="likes">
-      <%if current_user.like == nil%>
+      <%if current_user.like.nil?%>
         좋아하는 사람 0명
         <!--빈하트-->
         <img src="/svg/emptyheart.svg" height="20px" width="auto"alt="emptyHeart">

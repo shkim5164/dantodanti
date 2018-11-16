@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  rolify
   
   mount_uploader :image, ImageUploader
   

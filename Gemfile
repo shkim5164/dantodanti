@@ -1,9 +1,14 @@
 source 'https://rubygems.org'
 
+
+gem 'devise'
+gem 'rolify'
+gem 'cancancan'
+
+
 gem "scoped_search"
 gem 'impressionist'
 gem 'kaminari'
-gem 'devise'
 gem 'jquery-countdown-rails'
 gem 'tinymce-rails'
 

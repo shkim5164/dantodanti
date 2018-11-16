@@ -9,16 +9,19 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def edit_params
     devise_parameter_sanitizer.sanitize(:account_update)
   end
+
+  def 
+  end
   
   private
 
-  def sign_up_params
-    params.require(:user).permit(:username, :userdepartment, :usernumber, :userage, :email, :password, :password_confirmation)
-  end
+    def sign_up_params
+      params.require(:user).permit(:username, :userdepartment, :usernumber, :userage, :email, :password, :password_confirmation)
+    end
 
-  def account_update_params
-    params.require(:user).permit(:image, :username, :userdepartment, :usernumber, :userage, :email, :password, :password_confirmation, :current_password)
-  end
+    def account_update_params
+      params.require(:user).permit(:image, :username, :userdepartment, :usernumber, :userage, :email, :password, :password_confirmation, :current_password)
+    end
 
   protected
     def after_update_path_for(resource)
