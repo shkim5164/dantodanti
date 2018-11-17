@@ -1,8 +1,12 @@
 <head>
 <style>
+    hr{
+      margin:0;
+      padding:0;
+    }
     .mypage {
-        text-align:center;
-        padding:0px 360px 0px 360px;
+      display:grid;
+      grid-template-columns:2fr 6fr 2fr;
     }
     .username{
       font-size:2.5em;
@@ -17,7 +21,11 @@
     th{
         text-align :right;
     }
-    
+    .user-profile{
+      background-color: rgb(38, 38, 38);
+      color:white;
+      padding-bottom:10px;
+    }
     .user-profile-image {
         border-radius: 200px;
         width: 9em;
@@ -27,37 +35,110 @@
         margin-top:20px;
         margin-bottom:20px;
     }
+    .form{
+      padding : 30px;
+      /*line-height:2em;*/
+    }
 </style>
 </head>
-    
-    <!--메인컨텐츠 레이아웃-->
-    <div class="mypage text-align-center">
 
-        <!--프로필-->
-        <div class="user-profile">
-          <span class="username"><%= current_user.username %></span> <!--프사 위에 뜨는 유저이름-->
-          <!--프로필사진-->
-          <% if current_user.image.url.nil? %>
-            <img src="/img/cute.jpg" class="user-profile-image" alt="profile">
-            <p><b>프로필이 없습니다. 프로필을 등록해주세요</b></p>
-            <%= form_tag '/main/create', method: :post, class: 'user-profile-form',multipart: true do %>
-              <input type="file" name="image" value="imgae">
-              <input type="hidden" name="user" value="<%=current_user.id%>">
-              <input type="submit">
-            <% end %>
-          <% else %>
-            <img src="<%=current_user.image.url%>" class="user-profile-image" alt="profile">
-            <%= form_tag '/main/create', method: :post, class: 'user-profile-form',multipart: true do %>
-              <input type="file" name="image" value="imgae">
-              <input type="hidden" name="user" value="<%=current_user.id%>">
-              <input type="submit">
-            <% end %>
+<body>
+  <!--전체 container (display:grid)-->
+  <div class="mypage">
+    <div class="leftside"></div><!--왼쪽 레이아웃-->
+    <div class="main">
+      <!--프로필-->
+      <div class="user-profile" style="display:grid;grid-template-columns:3fr 4fr 3fr">
+        <div></div>
+        <div style="display:flex;flex-direction:column;text-align:center">
+        <span class="username"><%= current_user.username %></span> <!--프사 위에 뜨는 유저이름-->
+        <!--프로필사진-->
+        <% if current_user.image.url.nil? %>
+          <img src="/img/cute.jpg" class="user-profile-image" alt="profile">
+          <p><b>프로필사진을 등록해주세요!</b></p>
+          <%= form_tag '/main/create', method: :post, class: 'user-profile-form',multipart: true do %>
+            <input type="file" name="image" value="imgae">
+            <input type="hidden" name="user" value="<%=current_user.id%>">
+            <input type="submit">
           <% end %>
+        <% else %>
+          <img src="<%=current_user.image.url%>" class="user-profile-image" alt="profile">
+          <%= form_tag '/main/create', method: :post, class: 'user-profile-form',multipart: true do %>
+            <input type="file" name="image" value="imgae">
+            <input type="hidden" name="user" value="<%=current_user.id%>">
+            <input type="submit">
+          <% end %>
+        <% end %>
         </div>
+        <div></div>
+      </div><!--프로필(어두운부분)끝-->
 
-        <hr>
+      <hr>
+      
+      <!--form-->
+      <div class="form" style="display:grid;grid-template-columns:2fr 6fr 2fr">
+        <div></div>
+        <%= form_for(resource, as: resource_name, url: '/users', html: { method: :put }) do |f| %>
+        <div style="display:grid;grid-template-columns:3fr 6fr;grid-gap:1em">
+          <div>
+          <%= f.label :user['email'], "이메일" %>
+          </div>
+          <div>
+          <%= f.email_field :email, readonly: true, disabled: true, title: '수정할 수 없습니다',size: 20 %> <!--왜 사이즈조절 ㅇ나ㅣㄹㄴ아ㅁㄴ;이-->
+          </div>
+          <div>
+          <%= f.label :user['current_password'], "비밀번호" %>
+          </div>
+          <div>
+          <%= f.password_field :current_password, placeholder: '비밀번호를 입력해주세요', required: true %>
+          </div>
+          <div>
+          <%= f.label :user['password'], "새로운 비밀번호" %>
+          </div>
+          <div>
+          <%= f.password_field :password, placeholder: '새로운 비밀번호를 입력하세요' %>
+          </div>
+          <div>
+          <%= f.label :user['password_confirmation'], "비밀번호 확인" %>
+          </div>
+          <div>
+          <%= f.password_field :password_confirmation, placeholder: '비밀번호를 한번 더 입력하세요' %>
+          </div>
+          <div>
+          <%= f.label :user['username'], "이름" %>
+          </div>
+          <div>
+          <%= f.text_field :username %> 
+          </div>
+          <div>
+          <%= f.label :user['userdepartment'], "학과" %>
+          </div>
+          <div>
+          <%= f.text_field :userdepartment, placeholder: '예)국제경영' %> 학과
+          </div>
+          <div>
+          <%= f.label :user['usernumber'], "학번" %>
+          </div>
+          <div>
+          <%= f.password_field :password_confirmation, placeholder: '예)13' %>  학번
+          </div>
+          </div>
+          <br>
+          <!--수정하기버튼-->
+          <div class="form-actions d-flex justify-content-center my-2">
+              <%= f.submit class: 'btn btn-warning mx-1', value: '수정하기' %>
+            </div>
+          <% end %>
+          <div></div>
+      </div>
+    </div><!--메인컨텐츠끝-->
+  </div><!--전체 레이아웃 끝-->
+</body>
 
-        <!--입력 form-->
+
+
+
+<!-- 입력 form
         <%= simple_form_for(resource, as: resource_name, url: '/users', html: { method: :put }) do |f| %>
         <%= f.error_notification %>
         <table class="table table-borderless">
@@ -105,14 +186,11 @@
               <td colspan="1"><input class="string required" required="required" aria-required="true" type="text" name="user[usernumber]" id="user_usernumber" value="<%= current_user.usernumber%>"></td>
             </tr>
             </tbody>
-        </table>
-        
-        <!--수정하기버튼-->
+            
+        </table> 
+      
         <div class="form-actions d-flex justify-content-center">
           <input type="submit" value="수정하기" class="btn btn-warning mx-1">
         </div>
         <% end %>
-    
-    </div><!--메인컨텐츠 레이아웃 div 끝-->
-    
-</div>
+    -->

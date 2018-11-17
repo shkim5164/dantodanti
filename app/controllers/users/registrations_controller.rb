@@ -10,8 +10,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     devise_parameter_sanitizer.sanitize(:account_update)
   end
 
-  def 
-  end
+
   
   private
 

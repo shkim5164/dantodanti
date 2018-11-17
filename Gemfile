@@ -1,9 +1,12 @@
 source 'https://rubygems.org'
 
-
+#User administrations
 gem 'devise'
 gem 'rolify'
 gem 'cancancan'
+
+#using React.js in Rails!
+gem 'react-rails'
 
 
 gem "scoped_search"
