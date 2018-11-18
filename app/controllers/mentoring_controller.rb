@@ -50,4 +50,8 @@ class MentoringController < ApplicationController
         @word=params[:title]
         @search_s=Suup.search_for(params[:title])
     end
+
+    def newshow
+        @suup = Suup.find(params[:id])
+    end
 end

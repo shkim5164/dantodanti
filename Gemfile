@@ -7,6 +7,7 @@ gem 'cancancan'
 
 #using React.js in Rails!
 gem 'react-rails'
+gem 'webpacker'
 
 
 gem "scoped_search"
