@@ -20,7 +20,8 @@ class MainController < ApplicationController
   end
   
   def mypage
-    @suup_info = Suup.all.limit(3)
+    @suup_info = Suup.where(mentor_id: current_user.id)
+    
   end
   
 

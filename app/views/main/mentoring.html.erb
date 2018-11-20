@@ -64,7 +64,7 @@
       }
       .pkmn img{
         height:auto;
-        width:250px;
+        /*width:250px;*/
         display:block;
         margin:auto;
         margin-bottom:15px;
@@ -142,7 +142,7 @@
   padding-top: 10px;
   padding-bottom: 10px;">
 
-  <%if current.user.id %>
+  <%#if current.user.id %>
     <a href="/mentoring/new">
       <button class="btn btn-warning">새로운 수업 등록하기</button><!--mentor only!!-->
     </a>
@@ -175,6 +175,7 @@
     <h3>모집중인 수업</h3>
     <% @suups.each do |b| %>
     <div class="card col-md-4 col-sm-1 np pkmn" style="width: 18rem;" id="p1">
+      
       <img class="card-img-top" src="/img/suup.jpg" alt="Card image cap">
       <div class="card-body">
         <h5 class="card-title"><%= b.title %></h5>

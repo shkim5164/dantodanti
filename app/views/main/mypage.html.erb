@@ -56,40 +56,38 @@
   <div class="mx-5 my-3">
     <!--운영중인 멘토링 클래스-->
     <strong><h5>나의 멘토링 클래스</h5></strong>
-    <table class="table table-sm table-bordered table-dark" style="text-align:center;">
+    <% if @suup_info.empty? %>
+      <h5>멘토가 아니거나, 운영중인 클래스가 없습니다.</h5>
+    <% else %>
+     <table class="table table-sm table-bordered table-dark" style="text-align:center;">
       <thead>
         <tr>
-          <th scope="col"></th>
+          <th scope="col">#</th>
           <th scope="col">수업명</th>
-          <th scope="col">수업내용</th>
-          <th scope="col">학생수 (0/20)</th>
+          <th scope="col">과목</th>
+          <th scope="col">멘티 수</th>
         </tr>
       </thead>
+      
       <tbody>
+        <% @suup_info.each_with_index do |sp, index| %>
         <tr>
-          <th scope="row">1</th>
-          <td><%=@suup_info.first.title%></td>
-          <td><%=@suup_info.first.content%></td>
-          <td>학생수</td>
+          <th scope="row"><%= index + 1%></th>
+          <td><a href="/mentoring/show/<%= sp.id %>"><%= sp.title %></a></td>
+          <td><%= sp.subject %></td>
+          <td><%= Sinchung.where(suup_id: sp.id).count %> / <%= sp.limitman %></td>
         </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td><%=@suup_info.second.title%></td>
-          <td><%=@suup_info.second.content%></td>
-          <td>학생수</td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td><%=@suup_info.last.title%></td>
-          <td><%=@suup_info.last.content%></td>
-          <td>학생수</td>
-        </tr>
+        <% end %>
       </tbody>
     </table>
-
+    <% end %>
 
     <!--나의 질문답변-->
     <strong><h5>나의 질문과 답변</h5></strong>
+    <% if @suup_info.empty? %>
+      <h5>질문답변내역이 없습니다.</h5>
+    <% else %>
+    
     <table class="table table-sm table-bordered table-dark" style="text-align:center;">
       <thead>
         <tr>
@@ -100,27 +98,17 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td><%=@suup_info.first.title%></td>
-          <td><%=@suup_info.first.content%></td>
-          <td>학생수</td>
-        </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td><%=@suup_info.second.title%></td>
-          <td><%=@suup_info.second.content%></td>
-          <td>학생수</td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td><%=@suup_info.last.title%></td>
-          <td><%=@suup_info.last.content%></td>
-          <td>학생수</td>
-        </tr>
+        
+        <!--<tr>-->
+        <!--  <th scope="row">1</th>-->
+        <!--  <td><#%=@suup_info.first.title%></td>-->
+        <!--  <td><#%=@suup_info.first.content%></td>-->
+        <!--  <td>학생수</td>-->
+        <!--</tr>-->
+        
       </tbody>
     </table>
-    
+    <% end %>
   </div>
   
 </body>

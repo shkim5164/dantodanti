@@ -6,20 +6,21 @@ class MentoringController < ApplicationController
     def create
         @suup=Suup.new
         @suup.limitman=params[:limitman]
-        @suup.sttime=params[:sttime]
+        #@suup.sttime=params[:sttime]
         @suup.endtime=params[:endtime]
         @suup.place=params[:place]
         @suup.phone=params[:phone]
         @suup.title=params[:title]
         @suup.content=params[:content]
+        @suup.mentor_id = current_user.id
         @suup.save
         redirect_to "/mentoring/show/#{@suup.id}"
         
     end
     
     def show
-        @suup=Suup.find(params[:id])
-        @mentor= Mentor.find(@suup.id)
+        @suup = Suup.find(params[:id])
+        @mentor = Mentor.where(user_id: @suup.mentor_id)
         
     end
     

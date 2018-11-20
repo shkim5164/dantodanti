@@ -57,5 +57,6 @@ Rails.application.routes.draw do
   
   get 'main/sugang/:suup_id/:user_id' => 'main#sugang'
 
-
+  
+  
 end

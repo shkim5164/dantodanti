@@ -14,9 +14,8 @@ for i in 1..100
     Suup.create(title: "수업#{i}", mentor_id: 1, endtime: Time.new(2018, 8, 26, 10, 00, 00))
 end
 
-for i in 1..20
-    User.create(email: 'a@a.com', password: '123123', password_confirmation: '123123')
-end
+User.create(email: 'a@a.com', password: '123123', password_confirmation: '123123')
+
 
 
 for i in 1..10
