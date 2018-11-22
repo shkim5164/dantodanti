@@ -1,11 +1,6 @@
   <head>
     <style>
-      ::scrollbar {
-        display: none;
-      }
-      ::-webkit-scrollbar { 
-        display: none; 
-      }
+      
       #galleryWrapper p {
           white-space: normal!important;
       }
@@ -105,6 +100,7 @@
       }
       .runningClass{
         margin-top:100px;
+        padding-top:2.5em;
       }
       .paginate ul{
 
@@ -123,7 +119,7 @@
         background-position: center;
         background-color: black;"
         >
-    <div style="background-color:black; opacity:0.7; text-align:center; height: 100%; vertical-align: middle; display:flex; align-items:center;justify-content:center;flex-direction:column">
+    <div class="banner" style="background-color:black; opacity:0.7; text-align:center; height: 100%; vertical-align: middle; display:flex; align-items:center;justify-content:center;flex-direction:column">
     <h1 style="color: white">멘토링게시판</h1> 
     <p style="color: white">멘토링 게시판은 수업을 신청하는 게시판 입니다.</p>
     </div>
@@ -151,7 +147,7 @@
   
   <!--인기멘토링-->
   <div class="popularClass row">
-    <h3 style="margin: 10px auto;">인기 멘토링</h3>
+    <h3 style="margin: 10px auto;"><b>인기 멘토링</b></h3>
 
     <div id="galleryWrapper">
       <div id="imageWrapper">
@@ -173,7 +169,7 @@
   
   <!--모집중 수업-->
   <div class="runningClass" style="text-align:center; margin-top:10px;">
-    <h3>모집중인 수업</h3>
+    <h3><b>모집중인 수업</b></h3>
     <% @suups.each do |b| %>
     <div class="card col-md-4 col-sm-1 np pkmn" style="width: 18rem;" id="p1">
       <img class="card-img-top" src="/img/suup.jpg" alt="Card image cap">

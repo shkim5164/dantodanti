@@ -3,13 +3,20 @@
   nav{
     height:4em;
   }
+  .mainmenu{
+    padding-left:4.5em;
+  }
   .mainmenu img{
-    margin:1px 2px 3px 15px;
+    margin:1px 2px 3px 2em;
   }
   #mainNav ul a{
     color:black;
-    font-size:0.8em;
+    font-size:1em;
     text-decoration:none;
+    display:flex;
+  }
+  .userInfo a{
+    min-width:6em;
   }
   </style>
 </head>
@@ -31,8 +38,8 @@
       </div>
       
       <!--메인메뉴-->
-      <div class="mainmenu container d-flex justify-content-center">
-      <ul class="nav">
+      <div class="mainmenu container">
+      <ul class="nav d-flex justify-content-center mx-auto px-5">
          <li>
           <a href="/main"><img src="/svg/001-smiley.svg" height="20px" width="auto">홈으로</a>
         </li>
