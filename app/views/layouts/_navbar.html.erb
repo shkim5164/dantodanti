@@ -3,8 +3,11 @@
   nav{
     height:4em;
   }
-  .mainmenu{
-    padding-left:4.5em;
+  .mainmenu ul{
+    padding-left:4em;
+    margin:auto;
+    flex-wrap:nowrap;
+    justify-content: center;
   }
   .mainmenu img{
     margin:1px 2px 3px 2em;
@@ -13,10 +16,9 @@
     color:black;
     font-size:1em;
     text-decoration:none;
-    display:flex;
   }
   .userInfo a{
-    min-width:6em;
+    min-width:5.5em;
   }
   </style>
 </head>
@@ -24,12 +26,12 @@
 
 
 <nav class="navbar navbar-expand-lg navbar-light py-lg-2 bg-light" id="mainNav">
-    <!--<a class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none" href="/main">단토단티</a>-->
+    <a class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none" href="/main">단토단티</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse" id="navbarResponsive" style="display:flex;justify-content:space-around;">
+    <div class="collapse navbar-collapse" id="navbarResponsive" >
       <!--로고-->
       <div class="navbar-brand">
         <a href="/main">
@@ -39,7 +41,7 @@
       
       <!--메인메뉴-->
       <div class="mainmenu container">
-      <ul class="nav d-flex justify-content-center mx-auto px-5">
+      <ul class="nav mx-auto px-4">
          <li>
           <a href="/main"><img src="/svg/001-smiley.svg" height="20px" width="auto">홈으로</a>
         </li>
