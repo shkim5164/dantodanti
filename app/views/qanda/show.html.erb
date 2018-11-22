@@ -1,0 +1,27 @@
+<p>제목: <%= @q.title %></p>
+<p>유저 ID: <%= @q.user_id %></p>
+<p>전공: <%= @q.major %></p>
+<p>과목: <%= @q.subject %></p>
+<p>내용: <%= @q.content %></p>
+
+<% if @q.user_id == current_user.id %>
+    <a href="/qanda/edit/<%= @q.id %>">
+        <button class="btn-primary">수정하기!</button>
+    </a>
+    <a href="/qanda/destroy/<%= @q.id %>">
+        <button class="btn-primary">삭제하기!</button>
+    </a>
+<% end %>
+
+<form action="/qanda/a_create" method="post">
+    <div class="form-group">
+        <label for="exampleFormControlTextarea1">Example textarea</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="content"></textarea>
+      </div>
+      <input type="hidden" value="<%=@q.id %>" name="q_id"></input>
+      <input type="submit" value="작성"></input>
+</form>
+<% @ans.each do |a| %>
+    <p>답변유저 ID: <%= a.user_id %></p>
+    <p>내용: <%= a.content %></p>
+<% end %>

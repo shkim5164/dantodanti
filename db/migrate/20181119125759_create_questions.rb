@@ -5,6 +5,7 @@ class CreateQuestions < ActiveRecord::Migration
       t.text :content
       t.string :subject
       t.string :major
+      t.integer :user_id
 
       t.timestamps null: false
     end

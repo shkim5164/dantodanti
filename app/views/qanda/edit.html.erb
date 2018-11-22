@@ -1,0 +1,19 @@
+<form action ="qanda/update" method="post">
+  <div class="form-group">
+    <label for="exampleFormControlInput1">제목</label>
+    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="질문제목" name="title" value=<%= @q.title %>>
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlInput1">전공</label>
+    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="전공" name="major" value = <%= @q.major %>>
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlInput1">과목</label>
+    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="과목" name="subject" value = <%= @q.subject %>>
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlTextarea1">Example textarea</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="content"><%= @q.content %></textarea>
+  </div>
+  <input type="submit" value="작성"></input>
+</form>

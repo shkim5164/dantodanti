@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180824070444) do
+ActiveRecord::Schema.define(version: 20181122123201) do
 
   create_table "answers", force: :cascade do |t|
     t.string   "name"
@@ -81,6 +81,24 @@ ActiveRecord::Schema.define(version: 20180824070444) do
   end
 
   create_table "mentors", force: :cascade do |t|
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "qanswers", force: :cascade do |t|
+    t.integer  "question_id"
+    t.text     "content"
+    t.integer  "user_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "questions", force: :cascade do |t|
+    t.string   "title"
+    t.text     "content"
+    t.string   "subject"
+    t.string   "major"
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

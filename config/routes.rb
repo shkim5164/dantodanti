@@ -53,10 +53,21 @@ Rails.application.routes.draw do
   post 'mentoring/create'
   get 'mentoring/show/:id' => 'mentoring#show'
   delete 'mentoring/:id' => 'mentoring#delete'
+  post 'mentoring/update/:id' => 'mentoring#update'
   get 'mentoring/search'
   
   get 'main/sugang/:suup_id/:user_id' => 'main#sugang'
 
+  # Q&A 게시판
+  get 'qanda/show/:id' => 'qanda#show'
+  get 'qanda/new'
+  get 'qanda/edit/:id' => 'qanda#edit'
+  post 'qanda/create'
+  post 'qanda/update/:id' => 'qanda#update' 
+  post 'qanda/destroy/:id' => 'qanda#destory'
   
+  post 'qanda/a_create'
+  post 'qanda/a_destroy/:id' => 'qanda#a_destroy'
   
+  get 'qanda/index'
 end

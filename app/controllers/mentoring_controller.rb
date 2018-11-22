@@ -21,7 +21,7 @@ class MentoringController < ApplicationController
     def show
         @suup = Suup.find(params[:id])
         @mentor = Mentor.where(user_id: @suup.mentor_id)
-        
+        @sinchung = Sinchung.where(suup_id: params[:id])
     end
     
     def edit

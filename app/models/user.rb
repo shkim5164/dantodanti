@@ -18,6 +18,7 @@ class User < ActiveRecord::Base
   has_many :lists
   has_many :suup
   belongs_to :mentor
-  
+  has_many :questions
+  has_many :qanswers
 
 end

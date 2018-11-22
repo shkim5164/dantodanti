@@ -12,9 +12,13 @@
     <img class="img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0_2nqm0H20gpO-Pf9BsBwuAYt3McWcb-6rFs37i244h71Lyrnkg" width="200px" height="200px" style="border-radius:300px">
     <h3>멍멍이</h3>
     <% @mentor.each do |m| %>
-    <a href="/public/rank/<%= d.id %>" class="btn btn-primary">멘토 정보</a><br><br>
+        <a href="/public/rank/<%= d.id %>" class="btn btn-primary">멘토 정보</a><br><br>
     <% end %>
-    <a href="/main/sugang/<%= @suup.id %>/<%= current_user.id %>" class="btn btn-primary">수업 신청하기</a>
+    <% if @sinchung.count < @suup.limitman || (@suup.endtime.to_i - Time.now.to_i) > 0%>
+        <a href="/main/sugang/<%= @suup.id %>/<%= current_user.id %>" class="btn btn-primary">수업 신청하기</a>
+    <% else %>
+        <button type="button" class="btn btn-lg btn-primary" disabled>마감되었습니다.</button>
+    <% end %>
 </div>
 
 <div class="info col-8" style="float:right;">
@@ -32,6 +36,9 @@
     </li><br>
     <li style="font-size:2rem;">
         <strong><i class="fa fa-user" style="margin-right:16px"></i></strong> 제한인원 <%= @suup.limitman %>명
+    </li><br>
+    <li style="font-size:2rem;">
+        <strong><i class="fa fa-user" style="margin-right:16px"></i></strong> 신청인원 <%= @sinchung.count %>명
     </li><br>
     <li style="font-size:2rem;">
         <strong><i class="fa fa-phone" style="margin-right:10px"></i></strong><%= @suup.phone %>
