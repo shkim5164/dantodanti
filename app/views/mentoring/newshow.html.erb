@@ -1,10 +1,13 @@
 <head>
 <style>
     .outerContainer{
-        position:relative;
-        left:2em;
-        margin:5vh 10vw 20px 10vw;
-        max-width:60vw;
+        margin:auto;
+        margin-top:4vh;
+        margin-bottom:4vh;
+        max-width: 60vw;
+        background-color: ghostwhite;
+        display:flex;
+        flex-direction: column;
     }
     .showContainer{
         display:grid;
@@ -13,25 +16,51 @@
             'MainContents MainContents MemberList'
             'MainContents MainContents MemberList'
         ;
-        grid-auto-columns: minmax(25vw,auto);
+        grid-auto-columns: minmax(20vw,auto);
         grid-auto-rows: minmax(20vh,auto);
     }
     .Title{
         grid-area:Title;
-        background-color: red;
+        font-size:5vw;
+        text-align: center;
+        background-color: rgb(153, 200, 218);
+        padding: 20px;
+        display:flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    .Title .infoSec{
+        font-size:15px;
+        display: flex;
+        justify-content: space-between;
     }
     .MainContents{
         grid-area:MainContents;
-        background-color: green;
+        padding: 20px;
     }
     .MemberList{
         grid-area:MemberList;
-        background-color: blue;
+        display: flex;
+        flex-direction: column;
+        background-color: rgb(180, 192, 198);
+    }
+    .MemberList div{
+        flex: 1;
+        padding:2px 5px 2px 5px;
+        border-top:solid grey 0.5px;
+    }
+    .MemberList .king{
+        background-color: blanchedalmond;
+        border-top:none;
     }
     .JoinButton{
-        display:flex;
-        align-items: stretch;
         background-color:aqua;
+        grid-auto-columns: minmax(25vw,auto);
+        min-width: 25vw;
+        max-width: auto;
+        height: 3.5em;
+        text-align: center;
+        padding:0.85em;
     }
 
 </style>
@@ -42,10 +71,22 @@
 <!--전체-->
 <div class="outerContainer">
 <div class="showContainer">
-    <div class="Title">타이틀Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, in!</div>
-    <div class="MainContents">매안ㅋㅎㄴ탠추Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempora officiis possimus eos iste expedita minima sapiente doloremque nisi perspiciatis, deleniti nobis quos quia similique minus distinctio maiores necessitatibus fuga aut, maxime ut sed inventore? Ipsa eligendi cumque aliquid, minima, porro iure veritatis odit neque deserunt voluptatibus expedita saepe nam tenetur sed itaque molestiae pariatur ratione! Sequi maxime est eum, neque ab enim et, incidunt minima labore laudantium repellat reprehenderit eligendi non iusto. Delectus dolor natus officiis praesentium aperiam quos consequuntur, voluptates eos omnis laudantium fugit dolorem sed. Eos voluptatem perferendis velit ea, laboriosam iusto repudiandae voluptates illum sequi libero explicabo?</div>
+    <div class="Title">
+        <%= @suup.title %>
+        <div class="infoSec">
+            <div class="info">n명이 좋아합니다</div>
+            <div class="info">마감까지 x명 남았습니다!</div>
+        </div>
+    </div>
+    <div class="MainContents">
+        <%if @suup.content === nil %>
+            수업내용 : 수업 내용을 입력하세요!
+        <%else%>
+            <%= @suup.content %>
+        <%end%>
+    </div>
     <div class="MemberList">
-        <div>멤바1</div>
+        <div class="king">멘토정보(방장)</div>
         <div>멤바1</div>
         <div>멤바1</div>
         <div>멤바1</div>
@@ -56,7 +97,9 @@
         <div>멤바1</div>
     </div>
 </div>    
-<div class="JoinButton">조인버튼</div>
+<div class="JoinButton">
+    <span>수강신청!</span>
+</div>
 </div>
 
 
